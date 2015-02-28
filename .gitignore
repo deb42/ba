@@ -1,4 +1,7 @@
-*.[log]
-*.[aux]
-*.[out]
-*.[bbl]
+*.log
+*.aux
+*.out
+*.bbl
+*.toc
+*.gz
+*.blg

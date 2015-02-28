@@ -1,0 +1,53 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[pdftex]{color,graphicx}
+\usepackage[hypertexnames=false]{hyperref} 
+\usepackage[german,ngerman]{babel}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{background}
+\usepackage{amsmath}
+\usepackage[rflt]{floatflt}
+\usepackage{tabularx}
+\usepackage{ausarbeitung}
+
+%% Diese Farben werden für den Quelltext verwendet
+\definecolor{srcblue}{rgb}{0,0,0.5}
+\definecolor{srcgray}{rgb}{0.5,0.5,0.5}
+\definecolor{srcred}{rgb}{0.5,0,0}
+
+
+%% Diese Zeile unbedingt stehen lassen und anpassen - sie enthält Autor und Titel der Ausarbeitung
+\mywork{David Bujok}{Thema der Arbeit}
+
+\begin{document}
+\SetBgContents{}
+	%% Bei Diplomarbeiten folgende Zeile nutzen
+	\mybachelortitle{Dipl.-Wirt.Inform. Claus Alexander Usener}
+	%% Bei Bachelorarbeiten diese Zeile auskommentieren
+	%%\mybachelortitle{(ggf. Name des Betreuers)}
+	%% Bei Seminararbeiten diese Zeile auskommentieren
+	%%\myseminartitle{Titel des Seminars}{(ggf. Name des Betreuers)}
+
+  %% Inhaltsverzeichnis
+  %% frontmatter setzt die Seitenzahlen auf i, ii, ...
+  \frontmatter
+
+	%% Generiert automatisch aus den Sektionsbefehlen ein Inhaltsverzeichnis  
+  \tableofcontents
+
+  \newpage
+
+	%% das Mainmatter sorgt für die Nutzung arabischer Seitenzahlen
+	\mainmatter
+	
+\include{content/01_einleitung}
+\include{content/03_moodle}
+\include{content/05_dsbuilder}
+
+ \bibliography{Bachelorarbeit}
+  \bibliographystyle{alpha}
+ 
+
+  \diplomabschlusserklaerung{(Abgabedatum)}
+\end{document}
