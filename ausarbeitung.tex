@@ -10,12 +10,24 @@
 \usepackage[rflt]{floatflt}
 \usepackage{tabularx}
 \usepackage{ausarbeitung}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+
+\lstset{basicstyle=\scriptsize, numbers=left, numberstyle=\tiny\color{mygray}, numbersep=5pt, basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  stringstyle=\color{orange},breaklines=true}
 
 %% Diese Farben werden für den Quelltext verwendet
 \definecolor{srcblue}{rgb}{0,0,0.5}
 \definecolor{srcgray}{rgb}{0.5,0.5,0.5}
 \definecolor{srcred}{rgb}{0.5,0,0}
 
+\renewcommand{\lstlistingname}{Quellcode}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{\lstlistingname verzeichnis}% List of Listings
 
 %% Diese Zeile unbedingt stehen lassen und anpassen - sie enthält Autor und Titel der Ausarbeitung
 \mywork{David Bujok}{Thema der Arbeit}
@@ -35,7 +47,10 @@
 
 	%% Generiert automatisch aus den Sektionsbefehlen ein Inhaltsverzeichnis  
   \tableofcontents
-
+  \newpage
+	\lstlistoflistings
+	\newpage
+	\listoffigures
   \newpage
 
 	%% das Mainmatter sorgt für die Nutzung arabischer Seitenzahlen
@@ -44,6 +59,7 @@
 \include{content/01_einleitung}
 \include{content/03_moodle}
 \include{content/05_dsbuilder}
+
 
  \bibliography{Bachelorarbeit}
   \bibliographystyle{alpha}

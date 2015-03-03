@@ -34,7 +34,7 @@ Hat der Lehrende bei der Einrichtung des DSBuilders die Option \textit{direktes 
 \subsection{Umsetzung aus technischer Sicht}
 \label{sec:technologien}
 
-Das gesamte System um den EASy-DSBuilder besteht backendseitig aus zwei separaten Systemen. Zum einen gibt es das eigentliche Moodleplugin, welches in eine bestehenden Moodelplattform integriert werden kann, zum anderen gibt es einen Datenstruktur-Verarbeitungsservice, welcher als Webservice implementiert ist. Das Moodleplugin hat die Möglichkeit über die Moodle-API Daten in einer SQL-Datenbank - beispielsweise einem MySQL-Server - zu hinterlegen. Die Kommunikation zwischen dem Moodleplugin und dem Webservice läuft über das SOAP-Protokoll (vergl. Abb. \ref{fig:technoloieUeberblick}). Der Webservice ist als WildFly Application Server programmiert und unterliegt somit dem Java-EE7-Standard \cite{wildflyCert}. 
+Das gesamte System um den EASy-DSBuilder besteht backendseitig aus zwei separaten Systemen. Zum einen gibt es das eigentliche Moodleplugin, welches in eine bestehenden Moodelplattform integriert werden kann, zum anderen gibt es einen Datenstruktur-Verarbeitungsservice, welcher als Webservice implementiert ist. Das Moodleplugin hat die Möglichkeit über die Moodle-API Daten in einer SQL-Datenbank - beispielsweise einem MySQL-Server - zu hinterlegen. Die Kommunikation zwischen dem Moodleplugin und dem Webservice läuft über das SOAP-Protokoll. Der Webservice ist als WildFly Application Server implementiert und unterliegt somit dem Java-EE7-Standard \cite{wildflyCert}. In Abbildung \ref{fig:technoloieUeberblick} ist dargestellt, wie die unterschiedlichen Technologien in einander greifen.
 
 \begin{figure}[htbp] 
   \centering
@@ -45,7 +45,7 @@ Das gesamte System um den EASy-DSBuilder besteht backendseitig aus zwei separate
 
 Der Datenstruktur-Verarbeitungsservice hat die Aufgabe Datenstrukturen mit Hilfe von Die Separierung des Systems erfolgt aus den Risiken, dass der Code schädlich sein oder eine schlechte Ausführungsleistung aufweist kann. Durch die Trennung der beiden Systeme kann in beiden Fällen Zusammen- oder Performanceeinbrüchen der gesamten E-Learning-Plattform vorgebeugt werden. Weiterhin kann so Datendiebstahl vorgebeugt werden, da in der Verarbeitungsumgebung keine nutzerbezogenen Daten verarbeitet werden. Bei Ausfall des Verarbeitungsservices ist jedoch das Aufrufen eines nächsten Schrittes nicht mehr möglich \cite{Usener2014}.
 
-Auf Clientseite wird HTML mit CSS und JavaScript verwendet, um die Anwendung für den Benutzer darstellen zu können. Als JavaScript-Frameworks wird jQuery und und als JavaSrcipt-Applikation wird jsdot eingesetzt. Über jQuery ist die Kommunikation mit dem Moodleplugin über das AJAX-Protokoll organisiert. Jsdot dient als Grapheditor.  
+Auf Clientseite wird HTML mit CSS und JavaScript verwendet, um das Plugin für den Benutzer darstellen zu können. Als JavaScript-Frameworks wird jQuery und und als JavaSrcipt-Applikation wird jsdot eingesetzt. Über jQuery ist die Kommunikation mit dem Moodleplugin über das AJAX-Protokoll organisiert. Jsdot dient als Grapheditor.  
 
 \subsubsection{Datenstruktur-Verarbeitungsservice}  
 \label{sec:technWebService}
@@ -53,3 +53,38 @@ Auf Clientseite wird HTML mit CSS und JavaScript verwendet, um die Anwendung für
 Der Datenstruktur-Verarbeitungsservice kompiliert und führt den vom Lehrenden bereitgestellten Code aus. Er ist als Webservice implementiert und kann somit von einem anderen Server aus bereitgestellt werden. Die Ausführung des Codes ist vor jedem Einfügen oder Löschen, das von einem Studierenden durchgeführt wird, notwendig.
 
 Auf der Grundlage des bisherigen, eingereichten Schritts berechnet die Ausführungsumgebung den nächsten  die Ausführungsumgebung der nächsten Betriebswert (Taste, die eingefügt oder gelöscht wird), die erwartete Lösung und die entsprechende detaillierte Rückmeldungen.
+
+\subsubsection{Moodleplugin backendseitig}
+\label{sec:dsbuilderbackend}
+Das backendseitige Moodleplugin besitzt die grundlegende Struktur eines Moodleplugins, wie sie in Kapitel \ref{sec:aufbauPlugin} dargestellt wurde. 
+
+Über die Datei \textbf{view.php} wird der EASy-DSBuilder initialisiert. Von hier aus wir die Datei \textbf{renderer.php} angestoßen. Diese Datei sorgt dafür, dass die Ansicht erstellt wird. 
+
+\textbf{AJAX}
+Zur Kommunikation stellt das Moodleplugin eine AJAX Api zur Verfügung. 
+
+\lstset{language=PHP}
+%\begin{scriptsize}
+\begin{lstlisting}[caption=Beispielcode, frame=single]{Name}
+try {
+    if ($action === DSBUILDER_AJAX_ACTION_CHECK) {
+        $jsdot_graph_raw = required_param('jsdot_graph', PARAM_TEXT);
+        $result = $dsbuilder_ajax->action_check_valid_graph($jsdot_graph_raw);
+        $dsbuilder_ajax->add_to_log($action, $step_no);
+    } elseif ($action === DSBUILDER_AJAX_ACTION_NEXT_STEP) {
+        $jsdot_graph_raw = required_param('jsdot_graph', PARAM_TEXT);
+        $result = $dsbuilder_ajax->action_submit_current_step($jsdot_graph_raw);
+        $dsbuilder_ajax->add_to_log($action, $step_no);
+    } elseif ($action === DSBUILDER_AJAX_DELETE_LAST_STEP) {
+        $result = $dsbuilder_ajax->action_delete_last_step();
+        $dsbuilder_ajax->add_to_log($action, $step_no);
+    }
+}
+\end{lstlisting}
+%\end{scriptsize}
+
+
+
+\subsubsection{Moodleplugin frontendseitig}
+\label{sec:dsbuilderfrontend}
+
