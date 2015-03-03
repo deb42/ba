@@ -63,24 +63,11 @@ Das backendseitige Moodleplugin besitzt die grundlegende Struktur eines Moodlepl
 \textbf{AJAX}
 Zur Kommunikation stellt das Moodleplugin eine AJAX Api zur Verfügung. 
 
-\lstset{language=PHP}
-%\begin{scriptsize}
-\begin{lstlisting}[caption=Beispielcode, frame=single]{Name}
-try {
-    if ($action === DSBUILDER_AJAX_ACTION_CHECK) {
-        $jsdot_graph_raw = required_param('jsdot_graph', PARAM_TEXT);
-        $result = $dsbuilder_ajax->action_check_valid_graph($jsdot_graph_raw);
-        $dsbuilder_ajax->add_to_log($action, $step_no);
-    } elseif ($action === DSBUILDER_AJAX_ACTION_NEXT_STEP) {
-        $jsdot_graph_raw = required_param('jsdot_graph', PARAM_TEXT);
-        $result = $dsbuilder_ajax->action_submit_current_step($jsdot_graph_raw);
-        $dsbuilder_ajax->add_to_log($action, $step_no);
-    } elseif ($action === DSBUILDER_AJAX_DELETE_LAST_STEP) {
-        $result = $dsbuilder_ajax->action_delete_last_step();
-        $dsbuilder_ajax->add_to_log($action, $step_no);
-    }
-}
-\end{lstlisting}
+Der Codeausschnitt \ref{code:ajax} zeigt die Aktionen, die nach einer AJAX-Anfrage durchgeführt werden können. Der erste überprüft, ob es sich bei der übergebenen Struktur um eine richtige handelt
+
+\lstinputlisting[language=PHP, caption=AJAX API, frame=single, label=code:ajax]{code/ajax.php}
+
+
 %\end{scriptsize}
 
 
