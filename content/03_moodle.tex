@@ -1,17 +1,89 @@
+\section{Die Lernplattform Moodle}
+
+\subsection{Was ist Moodle}
+Bei Moodle handelt es sich um ein weltweit anerkanntes Lernmanagement-System \cite[S. 33]{Gertrsch2007}, das Lehrenden, Administratoren und Lernenden eine robuste, sichere und integrierte Plattform bereitstellen soll \cite{moo15d}. Der Name Moodle leitet sich von der Akronymisierung des Ausdrucks \textit{\textbf{M}odular \textbf{O}bject \textbf{O}riented \textbf{D}ynamic \textbf{L}earning \textbf{E}nvironment} ab \cite[S. 33]{Gertrsch2007}.
+Moodle ist weiterhin eine frei verfügbares Softwarepaket, da es der GNU Public Lizenz unterliegt \cite{Scheb2009}. Software, welche unter einer GNU Public License vertrieben wird, darf kopiert, benutzt und weiterentwickelt werden. Eine einschränkende Bedingung ist, dass Änderungen oder Weiterentwicklungen den eben genannten Pflichten unterliegen, sie folglich auch veröffentlicht und Dritten zur Verfügung gestellt werden müssen \cite{moo15a}. Die Plattform wird von einer weltweiten Gemeinschaft und von der Moodle Pty. Ltd. laufend weiterentwickelt. Vom australischen Moodle Erfinder Marign Dougiamas wird das Projekt zielgerichtet geleitet. Des weiteren gibt es ein Netzwerk professioneller Partnerunternehmen, welche Support und Beratung leisten \cite[S. 12]{Scheb2009}.
+
+\subsection{Moodle als Lernmanagement-System}
+Unter einem Lernmanagement-System (LMS) versteht man im wesentlichen ein Management-System für die Automatisierung und die Administration von Ausbildung. Insbesondere sollten LMS über folgende Funktionen verfügen \cite[S. 14]{Schulmeister2005}:
+
+\begin{itemize}
+\item Eine Benutzerverwaltung (Anmeldung mit Verschlüsselung)
+\item Eine Kursverwaltung (Kurse, Verwaltung der Inhalte, Dateiverwaltung)
+\item Eine Rollen- und Rechtevergabe mit differenzierten Rechten
+\item Kommunikationsmethoden (Chat, Foren) und Werkzeuge für das Lernen (Whiteboard, Notizbuch, Annotationen, Kalender etc.)
+\end{itemize}
+Moodle stellt diese Funktionen zur Verfügung. So besteht über die Website-Administration die Möglichkeit der Benutzerverwaltung \cite[S. 563
+ 2 ff.]{Gertrsch2007} und der Kursverwaltung \cite[S. 588 ff.]{Gertrsch2007}. Bei der Rollen - und Rechtevergabe bietet Moodle flexible Möglichkeiten der Administration. So verfügt Moodle über vorgefertigte Basisrollen mit bestimmten Rechten, die einen Großteil der Anwendungsfälle abdecken. Für bestimmte Situationen können Rollen jedoch editiert oder neue Rollen erstellt werden \cite[S. 191]{Gertrsch2007}. Die Basisrollen des Systems sind \cite[S. 193]{Gertrsch2007}:
+\begin{itemize}
+\item \textit{Kursverwalter:} Wer in einem Kontext \textit{Kursverwalter} ist, kann einen \textit{neuen Kurs erstellen} und in diesem unterrichten, weil er automatisch als \textit{Trainer} eingetragen wird. Zu anderen Kursen im gleichen Kontext hat er aber keinen Zugriff.
+\item \textit{Trainer}: Wer in einem Kontext \textit{Trainer} ist, ist in sämtlichen Kursen dieses Kontextes als \textit{Trainer} eingetragen und kann diese Bearbeiten
+\item \textit{Trainer ohne Editorrecht}: ist Trainer in sämtlichen Kursen dieses Kontextes. 
+\item \textit{Teilnehmer/in}: ist Teilnehmer in sämtlichen Kursen dieses Kontextes, kann also auch Kurse mit Zugriffsschlüssel betreten.
+\end{itemize}
+Auf die Kommunikationsmethoden, die Moodle zur Verfügung stellt, wird in Kapitel \ref{sec:kommunikationsmethoden} eingegangen. 
+ 
+
+Abbildung \ref{fig:architekurLMS} zeigt die idealtypische Architektur eines LMS. Zu sehen ist, dass ein LMS über drei Schichten verfügt. Bei der untersten Schicht handelt es sich um die Datenbankschicht, in der alle Lernobjekte,Benuterdaten und andere gehalten werden. Die mittlere Schicht stellt Schnittstellen zur Verfügung. Die oberste Schicht stellt die Sicht bereit, über die über die seitens von Administratoren, Dozenten oder Studierenden auf Inhalte zugegriffen werden kann \cite[S. 11]{Schulmeister2005}.
+\begin{figure}[htbp] 
+  \centering
+     \includegraphics[width=0.9\textwidth]{graphics/ArchitekturLMS.jpg}
+  \caption{Idealtypische Architektur eines LMS \cite[S. 12]{Schulmeister2005}}
+  \label{fig:architekurLMS}
+\end{figure} 
+Im Kontext dieser Arbeit wird insbesondere verstärkt auf die Schnittstellenschicht eingegangen. Das Kapitel \ref{sec:modularitaet} wird die Möglichkeit Einbindung von Modulen erläutern. Das Kapitel \ref{} wird hingegen den Teilbereichen Aufgeben und Tests aus dem Bereich Authoring der Ansichtsschicht auseinandersetzen. \textit{Es wird der Forschungsbereich E-Assessment vorgestellt, welcher sich mit Überprüfungen über Onlinemedien auseinandersetzt}.
+
+
+
+
+\subsection{Kommunikationsmethoden in Moodle}
+\label{sec:kommunikationsmethoden}
+
+
+
 \subsubsection{Aufbau eines Plugins}
 \label{sec:aufbauPlugin}
 
-Für jedes Plugin in Moodle muss eine bestimmte Datenstruktur implementiert werden. Diese besteht aus separaten Unterverzeichnissen und verpflichtenden Dateien. Des weiteren haben Entwickler die Möglichkeit weitere Dateien selbst zu gestalten. 
+Für jedes Plugin in Moodle muss eine bestimmte Datenstruktur implementiert werden. Diese besteht aus separaten Unterverzeichnissen und verpflichtenden Dateien. Des weiteren haben Entwickler die Möglichkeit weitere Dateien selbst zu gestalten \cite{moo15b}. 
+\hfill \\ \hfill \\ 
+\pfile{/<modname>/backup} \hfill \\ 
+Dieser Ordner dient zur Ablage aller Dateien, welche definieren, wie sich das Modul bei einem Backup oder einer Wiederherstellung verhalten soll \cite{moo15b}.
 
-\paragraph{/backup}
-
-\paragraph{/db}
+\hfill \\ 
+\pfile{/<modname>/db}
 \begin{itemize} 
-	\item \textbf{/access.php} In dieser Datei werden die so genannten \textit{capabilities} für das Plugin definiert. \textit{capabilities} beschreiben die Berechtigungen, welche eine Rolle in diesem Plugin zugeordnet bekommt. Eine Berechtigung ist beispielsweise das hinzufügen einer neuen Instanz diese Plugins zu einem Kurs.
-	\item \textbf{/install.xml}
-	\item \textbf{log.php}
-	\item \textbf{upgrade.php}
+	\item \pfile{/access.php} In dieser Datei werden die so genannten \textit{capabilities} für das Plugin definiert. \textit{capabilities} beschreiben die Berechtigungen, welche eine Rolle in diesem Plugin zugeordnet bekommt. Eine Berechtigung ist beispielsweise das hinzufügen einer neuen Instanz diese Plugins zu einem Kurs \cite{moo15b}.
+	\item \pfile{/install.xml} Diese Datei wird bei der Installation des Moduls benutzt. Sie definiert, welche Datenbanktabellen und -felder erstellt werden. Hierfür wird das XML-Format verwendet. Braucht das Modul keine weiteren Tabellen oder Spalten, so kann auf diese Datei verzichtet werden \cite{moo15b}.
+	\item \pfile{upgrade.php} Auf Grund dessen, dass die Datei \pfile{install.xml} nur einmal während der Installation aufgeführt wird, braucht es eine Methode um die Datenbank nachträglich um Tabellen oder Spalten zu erweitern. Diese Funktionalität wird von dieser Datei bereitgestellt und kommt bei einem Update des Moduls zum Einsatz \cite{moo15b}.
 \end{itemize}
-\paragraph{/lang}
+\hfill \\ 
+\pfile{/<modname>/lang} \hfill \\ 
+In diesem Ordner können alle \textit{Strings} gespeichert werden, die im Modul benutzt werden sollen. Jede Sprache hat hierbei einen spezifischen Ordnernamen ('\pfile{/lang/de}' beispielsweise für die Sprache Deutsch). Die in diesem Ordner gespeicherte Datei muss in der Form \pfile{<modname>.php} benannt sein \cite{moo15b}.
 
-\paragraph{/}
+\hfill \\ 
+\pfile{/<modname>/pix} \hfill \\ 
+Dieser Ordner dient dazu das Logo des Moduls zu speichern, welches neben dem Modulname erscheint. Der Name des Logos muss \pfile{icon.gif} lauten. Weiterhin besteht die Möglichkeit weitere Bilder in diesem Ordner zu speichern
+\cite{moo15b}.
+
+\hfill \\ \hfill \\ 
+\pfile{/<modname>}
+\begin{itemize} 
+	\item \pfile{/lib.php} Diese Datei bietet eine Schnittstelle für die zu implementierenden Kernfunktionen. Kernfunktionen werden dazu benötigt, damit das Modul in Moodle integriert arbeiten kann. Diese
+Schnittstellen-Funktionen werden von Moodle nach einem bestimmten Ereignis im Prozessablauf aufgerufen, sofern diese vom Modul in der Datei \pfile{/lib.php} definiert wurden. Dabei ist jeder dieser Funktionen zunächst der Name des
+Moduls vorangestellt, gefolgt von einem Unterstrich und dem Funktionsnamen
+(\pfile{<pluginname>\_core\_function}). Diese Konvention ist deshalb so wichtig, da
+die Datei \pfile{/lib.php} keine Klasse definiert, welche Namenskonflikte verhindern
+würde. \cite{moo15c}
+	
+	\item \pfile{/mod\_form.php}  Diese Datei wird beim Hinzufügen oder Bearbeiten eines Kurses genutzt. Es enthält die Elemente welche im Editiermenü des Moduls zu sehen sind. Die in dieser Datei enthaltende Klasse muss der Namenskonvention nach in der Form 
+	\pfile{mod\_<modname>\_mod\_form} benannt sein.
+	
+	\item \pfile{/index.php} Diese Datei wird von Moodle dazu genutzt, um auf Aktivitäten bei allen Instanzen dieses Moduls, welche einem bestimmten Kurs übergeben wurden, zu hören. Diese Datei ist spezifisch für diese Modulart \textit{Activity Module}.
+	
+	\item \pfile{/view.php} Diese Datei wird bei der Erzeugung der Anzeige benötigt. Beim Aufrufen eines Moduls über die Kurssicht wird auf diese Datei verwiesen.  Dabei wird dieser Datei die Instanz-ID übergeben, anhand welcher
+die Daten der Instanz ausgewählt und angezeigt werden können. Diese Datei ist spezifisch für diese Modulart \textit{Activity Module}.
+	
+	\item \pfile{/version.php} Diese Datei enthält die aktuelle Versionsnummer dieses Moduls. Außerdem enthält diese Datei weitere Attribute wie beispielsweise die Mindestanforderungen hinsichtlich der Moodleplattform.
+	
+	
+\end{itemize}

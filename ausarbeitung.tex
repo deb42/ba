@@ -12,19 +12,39 @@
 \usepackage{ausarbeitung}
 \usepackage{listings}
 \usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{lmodern}
 
-\definecolor{mygreen}{rgb}{0,0.6,0}
-\definecolor{mygray}{rgb}{0.5,0.5,0.5}
-
-\lstset{basicstyle=\scriptsize, numbers=left, numberstyle=\tiny\color{mygray}, numbersep=5pt, basicstyle=\footnotesize\ttfamily,
-  keywordstyle=\bfseries\color{green!40!black},
-  commentstyle=\itshape\color{purple!40!black},
-  stringstyle=\color{orange},breaklines=true}
+\newcommand{\pfile}[1]{{\bfseries \ttfamily #1}}
 
 %% Diese Farben werden für den Quelltext verwendet
 \definecolor{srcblue}{rgb}{0,0,0.5}
 \definecolor{srcgray}{rgb}{0.5,0.5,0.5}
 \definecolor{srcred}{rgb}{0.5,0,0}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{basicstyle=\scriptsize, numbers=left, numberstyle=\tiny\color{mygray}, numbersep=5pt, basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  commentstyle=\itshape\color{green!40!black},
+  stringstyle=\color{srcblue},breaklines=true}
+
+
 
 \renewcommand{\lstlistingname}{Quellcode}% Listing -> Algorithm
 \renewcommand{\lstlistlistingname}{\lstlistingname verzeichnis}% List of Listings

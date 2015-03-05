@@ -38,7 +38,7 @@ Das gesamte System um den EASy-DSBuilder besteht backendseitig aus zwei separate
 
 \begin{figure}[htbp] 
   \centering
-     \includegraphics[width=0.9\textwidth]{grahics/UeberblickTechnologien.jpg}
+     \includegraphics[width=0.9\textwidth]{graphics/UeberblickTechnologien.jpg}
   \caption{Technischer Überblick}
   \label{fig:technoloieUeberblick}
 \end{figure}
@@ -60,9 +60,12 @@ Das backendseitige Moodleplugin besitzt die grundlegende Struktur eines Moodlepl
 
 Über die Datei \textbf{view.php} wird der EASy-DSBuilder initialisiert. Von hier aus wir die Datei \textbf{renderer.php} angestoßen. Diese Datei sorgt dafür, dass die Ansicht erstellt wird. 
 
+
+
+\lstinputlisting[language=PHP, caption=Aufruf zur Initialisierung eines JSDot-Graphs, frame=single, label=code:ajax]{code/initDSBuilder.php}
+
 \textbf{AJAX}
 Zur Kommunikation stellt das Moodleplugin eine AJAX Api zur Verfügung. 
-
 Der Codeausschnitt \ref{code:ajax} zeigt die Aktionen, die nach einer AJAX-Anfrage durchgeführt werden können. Der erste überprüft, ob es sich bei der übergebenen Struktur um eine richtige handelt
 
 \lstinputlisting[language=PHP, caption=AJAX API, frame=single, label=code:ajax]{code/ajax.php}
@@ -75,3 +78,4 @@ Der Codeausschnitt \ref{code:ajax} zeigt die Aktionen, die nach einer AJAX-Anfra
 \subsubsection{Moodleplugin frontendseitig}
 \label{sec:dsbuilderfrontend}
 
+\lstinputlisting[language=JavaScript, caption=Initiierung eines JsDot-Graphs, frame=single, label=code:initJsDot]{code/initJsDot.js}
