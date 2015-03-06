@@ -1,0 +1,17 @@
+\section{Umsetzung der Änderungsanforderungen}
+In den folgenden Abschnitten wird die Umsetzung der Änderungsanforderungen beschreiben. Dies bedeutet, dass erläutert wird, an welchen Stellen Erweiterungen vorgenommen werden mussten, und beschrieben wird, wie diese Änderungen in der Implementierung umgesetzt wurden. 
+
+\subsection{Umbau des EASy-DSBuilders}
+Dieses Kapitel stellt die Stellen vor, an denen Änderungen vorgenommen werden mussten und erläutert die Ursachen, auf Grund derer die Änderungen vorgenommen werden mussten. In Kapitel \ref{sec:implementierungsdetails} wir auf die Implementierungsdetails eingegangen. Dieses Kapitel ist nach Schichten strukturiert.
+
+\subsubsection{Datenstrukturverarbeitungs-Webservice}
+An der Funktionalität des Datenstrukturverarbeitungs-Webservice sollte nichts geändert werden. Fehler, die während der Entwicklung auftraten, wurden behoben. Zur Endwicklung des Moodlemoduls musste jedoch die Datenstruktur eines B-Baums in Java implementiert werden, damit die Funktionen des Webservices bereitgestellt werden konnten.
+
+\subsubsection{Moodlemodul backendseitig}
+Die für das backendseitige Moodlemodul wichtigen Funktionalitäten ist die in Kapitel \ref{sec:dsbuilderbackend} beschriebene Generierung des DOM-Codes, das Handling von AJAX-Anfragen und das Verarbeiten und zur Verfügung Stellen der Datenstruktur. Die weitere Gliederung dieses Abschnitts ist an die Gliederung des Kapitels \ref{sec:dsbuilderbackend} angelehnt.
+
+\paragraph{Generierung des DOM-Codes} \hfill \\
+
+
+\subsection{Ausgewählte Implementierungsdetails}
+\label{sec:implementierungsdetails}

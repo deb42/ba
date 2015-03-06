@@ -56,26 +56,49 @@ Auf der Grundlage des bisherigen, eingereichten Schritts berechnet die Ausführun
 
 \subsubsection{Moodleplugin backendseitig}
 \label{sec:dsbuilderbackend}
-Das backendseitige Moodleplugin besitzt die grundlegende Struktur eines Moodleplugins, wie sie in Kapitel \ref{sec:aufbauPlugin} dargestellt wurde. 
+Das backendseitige Moodleplugin besitzt die grundlegende Struktur eines Moodleplugins, wie sie in Kapitel \ref{sec:aufbauPlugin} dargestellt wurde. Die weiteren, für die Funktionalität des Moduls wichtigen Dateien sind die Dateien \pfile{renderer.php} und \pfile{renderable.php}, welchen DOM-Code generieren, die Dateien \pfile{ajax\_request.php} und \pfile{ajax\_helper.php}, welche das Handling von AJAX-Anfragen übernehmen und die Datei \pfile{lib/js\_dot\_convert.php}, welche die Funktionen zur Verarbeitung der Datenstrukturen zur Verfügung stellt. Im weiteren Verlauf dieses Abschnittes werden diese drei Funktionalitäten tiefgehender erläutert und Codeausschnitte exemplarisch vorgestellt.
 
-Über die Datei \textbf{view.php} wird der EASy-DSBuilder initialisiert. Von hier aus wir die Datei \textbf{renderer.php} angestoßen. Diese Datei sorgt dafür, dass die Ansicht erstellt wird. 
+\paragraph{Generierung des DOM-Codes} \hfill \\
+Die Datei, welche für die Generierung des DOM-Codes verantwortlich ist, ist die \pfile{renderer.php}. Die Datei \pfile{renderable.php} implemeniert hingegen ein Interface, welches für die Verwendung des moodleinternen Renderers notwendig ist \cite{moodleRenderer}. Die in der Datei  \pfile{renderer.php} enthaltende Klasse \pfile{mod\_dsbuilder\_renderer} enthält Funktionen zum erstellen der für den DSBuilder benötigten Ansichten. So können Übersichten über laufende oder eingereichte Abgaben oder Notentabellen generiert werden.
+\begin{figure}[htbp] 
+\lstinputlisting[language=PHP, caption=Aufruf zur Initialisierung eines JSDot-Graphs, frame=single, label=code:initGraphEditor]{code/initDSBuilder.php}
+\end{figure}
+Ebenso können Ansichten zur Aufgabenbearbeitung generiert werden. Hierbei übernimmt die Initiierung des Grapheneditors, welche im Quellcode \ref{code:initGraphEditor} dargestellt wird, eine zentrale Rolle. Es wird eine Hilfsfunktion des Moodle-API \cite{moodleJsApi} verwendet, welche die frontendseitige JavaScript-Funktion zur Initialisierung des Grapheneditors anstößt. Die frontendseitige Funktionalität wird im Kapitel \ref{sec:dsbuilderfrontend} vertieft.
 
-
-
-\lstinputlisting[language=PHP, caption=Aufruf zur Initialisierung eines JSDot-Graphs, frame=single, label=code:ajax]{code/initDSBuilder.php}
-
-\textbf{AJAX}
-Zur Kommunikation stellt das Moodleplugin eine AJAX Api zur Verfügung. 
-Der Codeausschnitt \ref{code:ajax} zeigt die Aktionen, die nach einer AJAX-Anfrage durchgeführt werden können. Der erste überprüft, ob es sich bei der übergebenen Struktur um eine richtige handelt
-
+\paragraph{Modulinterne AJAX-API} \hfill \\
+Zur asynchronen Datenübertragung zwischen Browser und Server stellt das Moodleplugin eine AJAX Api zur Verfügung. 
+Der Quellcode \ref{code:ajax} zeigt einen Codeausschnitt aus der \pfile{ajax\_request.php}, in dem die möglichen Aktionen definiert sind, die nach einer AJAX-Anfrage durchgeführt werden können. Hierbei handelt es sich um die Funktionen, welche über die Knöpfe unterhalb des Grapheneditors (vergl. Kapitel \ref{sec:funktionalitaet}, Abschnitt Studierender) angestoßen werden können. Explizit handelt es sich um die Funktionen \textit{Syntax prüfen} (Quellcode \ref{code:ajax}, Z. 2), \textit{Speichern und weiter} (Quellcode \ref{code:ajax}, Z. 6) und \textit{Letzten Schritt wiederholen} (Quellcode \ref{code:ajax}, Z. 10). Die jeweils angestoßenen Funktionen sind in der \pfile{ajax\_helper.php} definiert.
+\begin{figure}[htbp] 
 \lstinputlisting[language=PHP, caption=AJAX API, frame=single, label=code:ajax]{code/ajax.php}
+\end{figure}
+Von dort aus werden weitere Funktionen zur Datenstrukturverarbeitung in der Klasse \pfile{jsdot\_graph} angestoßen. Diese Funktionen werden im nächsten Abschnitt vertiefender behandelt.
 
+\paragraph{Die Datenhaltung} \hfill \\
+Das Modul DSBuilders benötigt vier Entitäten für seine Datenhaltung. Es handelt sich um die Entitäten \textit{DSBuilder}, \textit{Assigment File}, \textit{Submission} und \textit{Submission Step}. Die Abbildung \ref{fig:erm} zeigt das Datenmodell des Moduls. 
+\begin{figure}[htbp] 
+  \centering
+     \includegraphics[width=0.9\textwidth]{graphics/ERM.jpg}
+  \caption{Datenmodell des DSBuilders}
+  \label{fig:erm}
+\end{figure}
+Nachdem das Modul neu in einem Kurs initialisiert worden ist, wird ein neues Datum der Entität \textit{DSBuilder} angelegt. Die der neuen Instanz des Moduls vom Lehrenden zugewiesenen Javadateien werden als Datum der Entität \textit{Assigment File}  gespeichert. Sobald Studierende die Instanz nutzen, wird für jeden Studierenden mit Vermerk auf die Instanz ein neues Datum der Entität \textit{Submission} angelegt. Jeder \textit{Submission} werden \textit{Submission Steps} zugeordnet. Sie beinhalten Informationen über die jeweiligen ausgeführten Schritte. 
 
-%\end{scriptsize}
+\paragraph{Die Datenstrukturverarbeitung} \hfill \\
+In der Datei \pfile{lib/js\_dot\_convert.php} liegt die Funktionalität der Datenstrukturverarbeitung. In ihr sind vier Klassen implementiert, von denen die Klasse \pfile{jsdot\_graph} eine Schnittstelle zur Konvertierung einer Datenstruktur zwischen dem Grapheneditor im Frontend und der Datenhaltung im Backend bietet. Abbildung \ref{fig:umlJsDotConvert} zeigt ein UML-Klassendiagramm der vier Klassen.
+\begin{figure}[htbp] 
+  \centering
+     \includegraphics[width=0.9\textwidth]{graphics/UMjsDotConvert1.jpg}
+  \caption{UML js\_dot\_convert}
+  \label{fig:umlJsDotConvert}
+\end{figure}
 
 
 
 \subsubsection{Moodleplugin frontendseitig}
 \label{sec:dsbuilderfrontend}
 
+Die zentrale Datei im Frontend ist die \pfile{dsbuilder.js}. Sie organisiert die Kommunikation mit dem Grapheneditor. Der Codeauszug \ref{code:initJsDot} zeigt die Initialisierung eines neuen jsdot-Graphen. 
+\begin{figure}[htbp] 
 \lstinputlisting[language=JavaScript, caption=Initiierung eines JsDot-Graphs, frame=single, label=code:initJsDot]{code/initJsDot.js}
+\end{figure}
+Des weiteren stellt diese Datei die AJAX-Kommunikation zur Verfügung.

@@ -38,8 +38,8 @@
   morestring=[b]"
 }
 
-\lstset{basicstyle=\scriptsize, numbers=left, numberstyle=\tiny\color{mygray}, numbersep=5pt, basicstyle=\footnotesize\ttfamily,
-  keywordstyle=\color{blue}\bfseries,
+\lstset{basicstyle=\scriptsize, numbers=left, numberstyle=\tiny\color{mygray}, numbersep=5pt, captionpos=b,  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\color{blue}\bfseries, 
   ndkeywordstyle=\color{darkgray}\bfseries,
   commentstyle=\itshape\color{green!40!black},
   stringstyle=\color{srcblue},breaklines=true}
@@ -68,18 +68,20 @@
 	%% Generiert automatisch aus den Sektionsbefehlen ein Inhaltsverzeichnis  
   \tableofcontents
   \newpage
-	\lstlistoflistings
-	\newpage
-	\listoffigures
-  \newpage
+%	\lstlistoflistings
+%	\newpage
+%	\listoffigures
+%   \newpage
 
 	%% das Mainmatter sorgt für die Nutzung arabischer Seitenzahlen
 	\mainmatter
 	
 \include{content/01_einleitung}
+\include{content/04_eassessment}
 \include{content/03_moodle}
 \include{content/05_dsbuilder}
-
+\include{content/06_anforderungen}
+\include{content/08_implementierung}
 
  \bibliography{Bachelorarbeit}
   \bibliographystyle{alpha}

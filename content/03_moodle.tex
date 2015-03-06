@@ -31,7 +31,7 @@ Abbildung \ref{fig:architekurLMS} zeigt die idealtypische Architektur eines LMS.
   \caption{Idealtypische Architektur eines LMS \cite[S. 12]{Schulmeister2005}}
   \label{fig:architekurLMS}
 \end{figure} 
-Im Kontext dieser Arbeit wird insbesondere verstärkt auf die Schnittstellenschicht eingegangen. Das Kapitel \ref{sec:modularitaet} wird die Möglichkeit Einbindung von Modulen erläutern. Das Kapitel \ref{} wird hingegen den Teilbereichen Aufgeben und Tests aus dem Bereich Authoring der Ansichtsschicht auseinandersetzen. \textit{Es wird der Forschungsbereich E-Assessment vorgestellt, welcher sich mit Überprüfungen über Onlinemedien auseinandersetzt}.
+Im Kontext dieser Arbeit wird insbesondere verstärkt auf die Schnittstellenschicht eingegangen. Das Kapitel \ref{sec:modularitaet} wird die Möglichkeit Einbindung von Modulen in Moodle erläutern. Das Kapitel \ref{} wird hingegen den Teilbereichen Aufgeben und Tests aus dem Bereich Authoring der Ansichtsschicht auseinandersetzen. \textit{Es wird der Forschungsbereich E-Assessment vorgestellt, welcher sich mit Überprüfungen über Onlinemedien auseinandersetzt}.
 
 
 
@@ -39,6 +39,11 @@ Im Kontext dieser Arbeit wird insbesondere verstärkt auf die Schnittstellenschic
 \subsection{Kommunikationsmethoden in Moodle}
 \label{sec:kommunikationsmethoden}
 
+\subsection{Modularität in Moodle}
+\label{sec:modularitaet}
+
+\subsubsection{Pluginarten}
+\label{sec:aufbauPlugin}
 
 
 \subsubsection{Aufbau eines Plugins}
@@ -72,7 +77,7 @@ Dieser Ordner dient dazu das Logo des Moduls zu speichern, welches neben dem Mod
 Schnittstellen-Funktionen werden von Moodle nach einem bestimmten Ereignis im Prozessablauf aufgerufen, sofern diese vom Modul in der Datei \pfile{/lib.php} definiert wurden. Dabei ist jeder dieser Funktionen zunächst der Name des
 Moduls vorangestellt, gefolgt von einem Unterstrich und dem Funktionsnamen
 (\pfile{<pluginname>\_core\_function}). Diese Konvention ist deshalb so wichtig, da
-die Datei \pfile{/lib.php} keine Klasse definiert, welche Namenskonflikte verhindern
+die Datei \pfile{/lib.php} keine Klasse definiert, welche Namenskonflikte verhindern. Es wird geraten Funktionalitäten, welche einen hohen Codeumfang haben, der Übersichtlichkeit halber in eine Datei namens \pfile{locallib.php} auszulagern.
 würde. \cite{moo15c}
 	
 	\item \pfile{/mod\_form.php}  Diese Datei wird beim Hinzufügen oder Bearbeiten eines Kurses genutzt. Es enthält die Elemente welche im Editiermenü des Moduls zu sehen sind. Die in dieser Datei enthaltende Klasse muss der Namenskonvention nach in der Form 
