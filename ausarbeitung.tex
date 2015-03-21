@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[latin1]{inputenc}
 \usepackage[pdftex]{color,graphicx}
-\usepackage[hypertexnames=false]{hyperref} 
+\usepackage[hypertexnames=false, pdfborder={0 0 0}]{hyperref} 
 \usepackage[german,ngerman]{babel}
 \usepackage{fancyhdr}
 \usepackage{amssymb}
@@ -16,6 +16,7 @@
 \usepackage{mathpazo}
 \usepackage{lmodern}
 
+\setcounter{tocdepth}{2}
 \newcommand{\pfile}[1]{{\bfseries \ttfamily #1}}
 
 %% Diese Farben werden für den Quelltext verwendet
@@ -50,7 +51,8 @@
 \renewcommand{\lstlistlistingname}{\lstlistingname verzeichnis}% List of Listings
 
 %% Diese Zeile unbedingt stehen lassen und anpassen - sie enthält Autor und Titel der Ausarbeitung
-\mywork{David Bujok}{Thema der Arbeit}
+\mywork{David Bujok}{Erweiterung eines E-Learning-Moduls zum Assessment von
+B-Baum-Datenstrukturen}
 
 \begin{document}
 \SetBgContents{}
@@ -77,11 +79,12 @@
 	\mainmatter
 	
 \include{content/01_einleitung}
-\include{content/04_eassessment}
-\include{content/03_moodle}
+\include{content/02_grundlagen}
 \include{content/05_dsbuilder}
 \include{content/06_anforderungen}
 \include{content/08_implementierung}
+\include{content/09_fazit}
+\include{content/12_anhang}
 
  \bibliography{Bachelorarbeit}
   \bibliographystyle{alpha}

@@ -42,11 +42,43 @@ Im Kontext dieser Arbeit wird insbesondere verstärkt auf die Schnittstellenschic
 \subsection{Modularität in Moodle}
 \label{sec:modularitaet}
 
-\subsubsection{Pluginarten}
-\label{sec:aufbauPlugin}
+\subsubsection{Modularten}
+\label{sec:modularten}
+Neben den eingangs beschriebenen Activity modules gibt es noch weitere Plugin-
+arten in Moodle, von denen eine Auswahl nun näher beschrieben wird.
+
+\paragraph{Activity Plugin} \hfill \\
+\textit{Activity Plugins} bieten in erster Linie Kursaktivitäten wie Foren, Hausarbeiten, Quizze und Workshops \cite{moo15g}.  
 
 
-\subsubsection{Aufbau eines Plugins}
+\paragraph{Blöcke} \hfill \\
+\textit{Blöcke} sind Plugins, welche eine einfache Art Interface besitzen und auf jeder
+Moodle-Seite hinzugefügt werden können. Zur Platzierung von Blöcken werden zu-
+meist zwei Spalten auf einer solchen Moodle-Seite angeboten, jeweils eine links und
+eine rechts vom eigentlichen Inhalt der Seite. Diese Pluginart dient dabei häufig
+der Darstellung von zusätzlichen Inhalten oder bietet eine weitere Sicht auf schon
+vorhandene Daten, welche andere Rückschlüsse zulässt. Mithilfe von Blöcken ist es
+zudem möglich, ein Interface zur Bearbeitung von Daten anzubieten \cite{Moo14f}.
+
+\paragraph{Themes} \hfill \\
+Sogenannte \textit{themes} bilden eine weitere Pluginart, mithilfe derer sich die Darstellung und das Aussehen von Moodle auf verschiedenen Ebenen anpassen lässt. Bei
+diesen Ebenen, auf denen ein \textit{theme} angewendet wird, kann es sich sowohl um einzelne Moodle- oder Kursseiten als auch um alle Kursseiten einer Kurskategorie handeln.
+Durch diese Art von Plugin schafft Moodle die Trennung der Präsentationsschicht
+von der funktionalen Schicht \cite{Moo14f}.
+
+\paragraph{Course formats} \hfill \\
+Mithilfe von \textit{course format} Plugins lässt sich die Struktur von Kursen anpassen.
+Diese Plugins legen fest, wie die Hauptseite eines Kurses aufgebaut ist, wie der Navigationsbaum innerhalb eines Kurses erstellt wird und wie die einzelnen Kursbereiche
+strukturiert sind \cite{Moo14b}.
+
+\paragraph{General plugins} \hfill \\
+Eine weitere wichtige Pluginart, sind die sogenanten \textit{general plugins}, oder auch \textit{local Plugins}. Diese Art
+von Plugin kommt immer dann zum Einsatz, wenn keine der sonstigen Pluginarten
+passt. Dies kann unter anderem dann der Fall sein, wenn der Navigationsblock um
+ein eigenes Menü erweitert werden soll. Auch für Webservices und die Einbindung
+externer Systeme sind \textit{local-Plugins} die erste Wahl \cite{Moo14e}.
+
+\subsubsection{Aufbau eines Moduls}
 \label{sec:aufbauPlugin}
 
 Für jedes Plugin in Moodle muss eine bestimmte Datenstruktur implementiert werden. Diese besteht aus separaten Unterverzeichnissen und verpflichtenden Dateien. Des weiteren haben Entwickler die Möglichkeit weitere Dateien selbst zu gestalten \cite{moo15b}. 
