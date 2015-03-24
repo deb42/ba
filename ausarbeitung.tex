@@ -16,7 +16,7 @@
 \usepackage{mathpazo}
 \usepackage{lmodern}
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \newcommand{\pfile}[1]{{\bfseries \ttfamily #1}}
 
 %% Diese Farben werden für den Quelltext verwendet
@@ -29,7 +29,18 @@
 
 
 \lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, for, while, do, else, case, break},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{php}{
+  keywords={typeof, new, true, false, catch, private, public, static, function, return, null, catch, switch, var, if, for, foreach, in, while, do, else, case, break, self},
   ndkeywords={class, export, boolean, throw, implements, import, this},
   identifierstyle=\color{black},
   sensitive=false,

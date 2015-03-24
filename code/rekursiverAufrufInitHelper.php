@@ -1,0 +1,1 @@
+self::b_tree_initialize_helper ( $jsdot_graph, $e, ($height + 1), $index_node + $index_array * $t, $spacing_x, $spacing_y, $t)
