@@ -11,26 +11,35 @@ Diese Kapitel wird das Tool EASy-DSBuilder vorstellen. Hierbei wird zu erst in K
 Im folgenden Kapitel wird die Funktionalität des Moodlemodul EASy-DSBuilder vorgestellt. Hierbei wird auf die beiden Sichten Studierender und Lehrender eingegangen.
 
 \paragraph{Lehrender} \hfill \\
-Der Lehrende hat zwei grundlegende Aufgaben. Zum Einen ist er dafür verantwortlich, dass eine Aufgabe erstellt wird, zum Anderen hat er die Möglichkeit, die Ergebnisse einzusehen, um beispielsweise Indikatoren zur Verbesserung der Lehre zu finden \cite{Usener2014}. Wird eine neue Aufgabe erstellt, hat der Lehrende die Möglichkeit allgemeine Informationen wie den \textit{Titel}, die \textit{Beschreibung} und das \textit{Fälligkeitsdatum} anzugeben. Unter \textit{Source Files} kann der Lehrende über Drag-and-Drop seine eigene Implementierung einer Datenstruktur zu dem Moodlemodul hinzufügen. Hierzu muss er eine Wrapper auf Basis eines Interfaces \textit{DataStructureWrapperInterface<K extends Comparable<K>, D>} implementieren, sodass die verlangten Voraussetzungen erfüllt sind. Diese Wrapperklasse muss anschließend vom Lehrenden als Hauptklasse eingestellt werden. Auf die Funktionalität der Wrapperklasse aus technischer Sicht wird im Kapitel \ref{sec:technWebService} näher eingegangen. Des weiteren kann der Lehrende eine Feedback aktivieren. Die genau Funktionalität des Feedbacks wird im Absatz der Studentensicht erläutert.  
-
-\textbf{Übersichtsansicht und Ansicht der Ergebnisse}
+Der Lehrende hat zwei grundlegende Aufgaben. Zum Einen ist er dafür verantwortlich, dass eine Aufgabe erstellt wird, zum Anderen hat er die Möglichkeit, die Abgaben einzusehen, um sie beispielsweise zu bewerten oder Indikatoren zur Verbesserung der Lehre zu finden \cite{Usener2014}. Wird eine neue Aufgabe erstellt, hat der Lehrende die Möglichkeit allgemeine Informationen wie den \textit{Titel}, die \textit{Beschreibung} und das \textit{Fälligkeitsdatum} anzugeben. Unter \textit{Source Files} kann der Lehrende über Drag-and-Drop seine eigene Implementierung einer Datenstruktur zu dem Moodlemodul hinzufügen. Hierzu muss er einen Wrapper auf Basis des Interfaces \textit{DataStructureWrapperInterface<K extends Comparable<K>, D>} implementieren (vergl. Anhang, Quellcode \ref{code:wrapper}). Diese Wrapperklasse muss anschließend vom Lehrenden als Hauptklasse eingestellt werden. Auf die Funktionalität der Wrapperklasse aus technischer Sicht wird im Kapitel \ref{sec:technWebService} näher eingegangen. Des weiteren kann der Lehrende eine Feedback aktivieren. Die genau Funktionalität des Feedbacks wird im Abschnitt über die Funktionalität aus Sicht des Studierenden erläutert.  
 
 \paragraph{Studierender} \hfill \\
-Der Studierende verfügt über zwei Ansichten. Zum einen die Übersichtsansicht, zum anderen die Bearbeitungsansicht.
-Nachdem der Studierende sich in das Modul eingewählt hat, ist Übersichtsansicht über den bisherigen Verlauf des Assessments zu sehen. In dieser Übersicht ist der Abgabestatus, der Bewertungsstand, der Abgabezeitpunkt und die verbliebene Zeit zu sehen (vergl. Abb. \ref{}). Über den Button \textit{Aufgabe bearbeiten} gelangt der Studierende zum Editor, in dem die Aufgabe bearbeitet werden kann. 
+Der Studierende verfügt über zwei Ansichten. Zum einen gibt es die Übersichtsansicht, zum anderen die Bearbeitungsansicht.
+Nachdem der Studierende sich in das Modul eingewählt hat, ist die Übersichtsansicht über den bisherigen Verlauf des Assessments zu sehen. In dieser Übersicht ist der Abgabestatus, der Bewertungsstand, der Abgabezeitpunkt und die verbliebene Zeit zu sehen (vergl. Abb. \ref{}). Über den Button \textit{Aufgabe bearbeiten} gelangt der Studierende zum Editor, in dem die Aufgabe bearbeitet werden kann. 
 
-Die Bearbeitungsansicht ist in drei grundlegende Abschnitte unterteilt. Den oberen Teil der Ansicht bildet ein Überblick über den aktuellen Schritt. Dieser Überblick beinhaltet den Fortschritt der Aufgabe, die Nummer des aktuellen Schritts und den aktuellen Arbeitsauftrag. Im mittleren Teil der Sicht befindet sich der Editor, in dem der Studierende die Aufgabe bearbeiten kann. Im oberen linken Bereich des Editor befinden sich drei Knöpfe (vergl. Abb. \ref{}.1), über welche der Editiermodus ausgewählt werden kann. Der 1. Knopf ermöglicht das verschieben von Konten im Editor, der zweite Knopf ermöglicht das Ziehen von Kanten zwischen zwei Knoten, und der dritte Knopf ermöglicht das Entfernen von Konten.
+Die Bearbeitungsansicht ist in drei grundlegende Abschnitte unterteilt. Den oberen Teil der Ansicht bildet ein Überblick über den aktuellen Schritt. Dieser Überblick beinhaltet den Fortschritt der Aufgabe, die Nummer des aktuellen Schritts und den aktuellen Arbeitsauftrag. 
+\begin{figure}[htbp] 
+  \centering
+     \includegraphics[width=0.5\textwidth]{graphics/editor.jpg}
+  \caption{DSBuilder Editor}
+  \label{fig:editor}
+\end{figure}
+Im mittleren Teil der Sicht befindet sich der Editor, in dem der Studierende die Aufgabe bearbeiten kann. Im oberen linken Bereich des Editor befinden sich drei Knöpfe (vergl. Abb. \ref{fig:editor}), über welche der Editiermodus ausgewählt werden kann. Der 1. Knopf ermöglicht das verschieben von Konten im Editor, der zweite Knopf ermöglicht das Ziehen von Kanten zwischen zwei Knoten, und der dritte Knopf ermöglicht das Entfernen von Kanten.
 
-Der \textbf{DragandDropGrafikeditor} enthält zwei bearbeitbare Elemente, die Knoten und die Kanten. Über Manipulation dieser Elemente sollen Studierende den
-Umgang mit Datenstrukturoperationen erlernen. Hierbei kann der Studierende Operationen wie das Einfügen in oder das Löschen eines Elements aus einer Datenstruktur 
-praktizieren. In der \textbf{momentanen} Version des EASyDSBuilders beginnt jeder Schritt mit dem Ergebnisbaum des zuvor eingereichten Schritts, oder einem Initiierngsbaum,
+Der Drag-and-Drop-Grafikeditor enthält zwei bearbeitbare Elemente, die Knoten und die Kanten. Über Manipulation dieser Elemente sollen Studierende den
+Umgang mit Datenstrukturoperationen erlernen. Hierbei könnte der Studierende Operationen wie das Einfügen eines Elements in oder das Löschen eines Elements aus einer Datenstruktur 
+praktizieren. In der momentanen Version des EASyDSBuilders kann der Studierende nur das Einfügen Praktizieren. Weiterhin beginnt in dieser Version jeder Schritt mit dem Ergebnisbaum des zuvor eingereichten Schritts, oder einem Initiierngsbaum,
 falls es sich um den  ersten Schritt handelt.
-Auf der linken Seite des Editors wird der einzufügende Knoten bereitgestellt. Die Aufgabe des Studierenden ist es, diesen Knoten an der richtigen 
+Auf der linken Seite des Editors wird der einzufügende Knoten bereitgestellt. Die Aufgabe des Studierenden ist es nun, diesen Knoten an der richtigen 
 Stelle in den Baum einzufügen. Hierbei kann er sich dem Verschieben der Knoten wie dem Löschen oder neu Ziehen von Kanten bedienen.
-Nachdem der Studierende seine Veränderungen vorgenommen hat, kann er über den Knopf \textit{Syntax prüfen} den Baum ausbalanciert anzeigen lassen. Auf diese Weise kann der Studierende überprüfen, ob die Anwendung den Baum im Sinne des Studierenden verarbeitet hat. Entspricht die überprüfte Struktur nicht der Struktur eines Baumes, \textbf{genauere Definiton} bekommt der Studierende eine Fehlermeldung mit einem Hinweis über die Fehlerquelle.
+Nachdem der Studierende seine Veränderungen vorgenommen hat, kann er über den Knopf \textit{Syntax prüfen} den Baum ausbalanciert anzeigen lassen. Auf diese Weise kann der Studierende überprüfen, ob die Anwendung den Baum im Sinne des Studierenden verarbeitet hat. Entspricht die überprüfte Struktur nicht der Struktur eines Binärbaumes, bekommt der Studierende eine Fehlermeldung mit einem Hinweis über die Fehlerquelle. Ein Baum wird in diesem Sinne als fehlerhaft angesehen, wenn ein Knoten nicht Teil des Baums ist, oder der Baum zyklisch ist.
 
-Hat der Lehrende bei der Einrichtung des DSBuilders die Option \textit{direktes Feedback} eingestellt, erscheint im Falle einer falschen Eingabe ein Feedbackfeld unterhalb des Editors. In diesem Feedbackfeld wird zu erst ein Informationstext angezeigt, welches das richtige Vorgehen in dem zuvor eingereichtem Schritt beschreibt. Unterhalb dieses Informationstextes ist der korrekte Baum zu sehen. Die falsch eingeordneten Knoten sind rot markiert. 
+Hat der Lehrende bei der Einrichtung des DSBuilders die Option \textit{direktes Feedback} eingestellt, erscheint im Falle einer falschen Eingabe ein Feedbackfeld unterhalb des Editors. In diesem Feedbackfeld wird zu erst ein Informationstext angezeigt, welches das richtige Vorgehen in dem zuvor eingereichtem Schritt beschreibt. Unterhalb dieses Informationstextes ist der korrekte Baum zu sehen. Die falsch eingeordneten Knoten sind rot markiert (vergl. Abb. \ref{fig:editor}). 
 
+\subsection{Einordnung als E-Assessment-Tool}
+Datenstrukturen wie Binärbäume sind elementare Bestandteile von Informatikklausuren. Insbesondere der Umgang mit Operationen wie dem Einfügen oder Löschen von Elementen innerhalb solcher Strukturen erfordert kognitive Fähigkeiten. Der EASy-DSBuilder soll hierbei beim Erlernen dieser Fähigkeiten innerhalb der Informatikvorlesung unterstützen \cite[S. 1]{Usener2014}. In welchen Typ E-Assessment der DSBuilder einzuordnen ist wird im folgenden Abschnitt erläutert.
+
+In Kapitel \ref{sec:eassessmentEinleitung} wurden bereits die drei Assessmenttypen diagnostisches, formatives und summatives Assessment vorgestellt. Diagnostisches Assessment hat die Aufgabe die Fähigkeiten von Teilnehmern vor Beginn einer Lehrveranstaltung zu ermitteln. Die Funktionalität des DSBuilders ermöglicht diesen Einsatzzweck, jedoch ist der beabsichtigte der Einsatz während des Lehr- und Lernbetriebs \cite[S. 1]{Usener2014}. Dies wiederum spricht dafür, dass der DSBuilder als formatives Assessment eingestuft wird. Das Tool stellt für diese Kategorisierung alle geforderten Funktionalitäten bereit. So kann eingestellt werden, dass der Studierende ein direktes Feedback erhält, sodass er sich selbst einschätzen kann. Des weiteren kann der Lehrende die Ergebnisse einsehen und somit den Lernstand innerhalb des Kurses einschätzen. Wenn die Feedbackfunktion jedoch abgestellt wird, bietet der DSBuilder die Funktionalität eines summativen Assessments, da der Lehrende neben der Möglichkeit der Einsichtnahme in die Abgaben auch die Möglichkeit der Bewertung der Abgaben hat.
 
 \subsection{Umsetzung aus technischer Sicht}
 \label{sec:technologien}
@@ -54,16 +63,16 @@ Der Datenstruktur-Verarbeitungsservice hat die Aufgabe Datenstrukturen in Form e
  
 Um funktionsfähig zu sein, muss der Datenstruktur-Verarbeitungsservice den vom Lehrenden bereitgestellten Code kompilieren und ausführen. Der Verarbeitungsservice ist als separater Webservice implementiert und wird somit von einem anderen Server aus bereitgestellt. Die Separierung des Systems erfolgt aus den Risiken, dass der Code schädlich sein oder eine schlechte Ausführungsleistung aufweisen kann. Durch die Trennung der beiden Systeme kann in beiden Fällen Zusammen- oder Performanceeinbrüchen der gesamten E-Learning-Plattform vorgebeugt werden. Weiterhin kann so Datendiebstahl verhindert werden, da in der Verarbeitungsumgebung keine nutzerbezogenen Daten verarbeitet werden. Bei Ausfall des Verarbeitungsservices ist jedoch das Aufrufen eines nächsten Schrittes nicht mehr möglich \cite{Usener2014}.
 
-Der Webservice verfügt über die SOAP-Schnittstellen  \textit{analyzeSourceCode}, \textit{assignmentInitialize} und \textit{assignmentIsIntialized}, die zur Initialisierung einer neuen DSBuilder-Instanz beötigt werden, ebenso wie die SOAP-Schnittstellen \textit{submissionGetNextInput} und \textit{submissionGetInitialDS}, die zur Verarbeitung einer Datenstruktur benötigt werden. Um den Webservice nutzen zu können müssen ihm Codedateien zu Verfügung gestellt werde. Über den SOAP-Aufruf \textit{analyzeSourceCode} wird die Lesbarkeit der Dateien geprüft. Anschließend kann über den SOAP-Aufruf \textit{assignmentInitialize} der Code compiliert und bereitgestellt werden. Die Ausführung des Codes ist vor jedem Einfügen oder Löschen, das von einem Studierenden durchgeführt wird, notwendig.
-So kann über den SOAP-Aufruf \textit{submissionGetNextInput} der der nächste Übungsschritt für den Studierenden erhalten werde. Bei der Initialisierung der Übung wird der SOAP-Aufruf \textit{submissionGetInitialDS} benötigt. Die Antwort auf diese beiden Aufrufe beinhaltet den neuen Schlüssel und dessen Wert, die serialisierte Datenstruktur und zusätzliche Hilfe. 
+Der Webservice verfügt über die SOAP-Schnittstellen  \textit{analyzeSourceCode}, \textit{assignmentInitialize} und \textit{assignmentIsIntialized}, die zur Initialisierung einer neuen DSBuilder-Instanz beötigt werden, ebenso wie die SOAP-Schnittstellen \textit{submissionGetNextInput} und \textit{submissionGetInitialDS}, die zur Verarbeitung einer Datenstruktur benötigt werden. Um den Webservice nutzen zu können müssen ihm Codedateien zu Verfügung gestellt werde. Über den SOAP-Aufruf \textit{analyzeSourceCode} wird die Lesbarkeit der Dateien geprüft. Anschließend kann über den SOAP-Aufruf \textit{assignmentInitialize} der Code compiliert und bereitgestellt werden. Die Ausführung des Codes ist vor jedem Einfügen, das von einem Studierenden durchgeführt wird, notwendig.
+So kann über den SOAP-Aufruf \textit{submissionGetNextInput} der der nächste Übungsschritt für den Studierenden erhalten werde. Bei der Initialisierung der Übung wird der SOAP-Aufruf \textit{submissionGetInitialDS} benötigt. Die Antwort auf diese beiden Aufrufe beinhaltet den neuen Schlüssel, die serialisierte Datenstruktur und zusätzliche Hilfe. 
 
 
 \subsubsection{Moodlemodul backendseitig}
 \label{sec:dsbuilderbackend}
-Das backendseitige Moodlemodul besitzt die grundlegende Struktur eines Moodlemoduls, wie sie in Kapitel \ref{sec:aufbauPlugin} dargestellt wurde. Die weiteren, für die Funktionalität des Moduls wichtigen Dateien sind die Dateien \pfile{renderer.php} und \pfile{renderable.php}, welchen DOM-Code generieren, die Dateien \pfile{ajax\_request.php} und \pfile{ajax\_helper.php}, welche das Handling von AJAX-Anfragen übernehmen und die Datei \pfile{lib/js\_dot\_convert.php}, welche die Funktionen zur Verarbeitung der Datenstrukturen zur Verfügung stellt. Im weiteren Verlauf dieses Abschnittes werden diese drei Funktionalitäten tiefgehender erläutert und Codeausschnitte exemplarisch vorgestellt.
+Das backendseitige Moodlemodul besitzt die grundlegende Struktur eines Moodlemoduls, wie sie in Kapitel \ref{sec:modularten} dargestellt wurde. Die weiteren, für die Funktionalität des Moduls wichtigen Dateien sind die Dateien \pfile{renderer.php} und \pfile{render}- \pfile{able.php}, welche den DOM-Code generieren, die Dateien \pfile{ajax\_request.php} und \pfile{ajax\_helper.php}, welche das Handling von AJAX-Anfragen übernehmen und die Datei \pfile{lib/js\_dot\_convert.php}, welche die Funktionen zur Verarbeitung der Datenstrukturen zur Verfügung stellt. Im weiteren Verlauf dieses Abschnittes werden diese drei Funktionalitäten tiefgehender erläutert und Codeausschnitte exemplarisch vorgestellt.
 
 \paragraph{Generierung des DOM-Codes} \hfill \\
-Die Datei, welche für die Generierung des DOM-Codes verantwortlich ist, ist die \pfile{renderer.php}. Die Datei \pfile{renderable.php} implemeniert hingegen ein Interface, welches für die Verwendung des moodleinternen Renderers notwendig ist \cite{moodleRenderer}. Die in der Datei  \pfile{renderer.php} enthaltende Klasse \pfile{mod\_dsbuilder\_renderer} enthält Funktionen zum erstellen der für den DSBuilder benötigten Ansichten. So können Übersichten über laufende oder eingereichte Abgaben oder Notentabellen generiert werden.
+Die Datei, welche für die Generierung des DOM-Codes verantwortlich ist, ist die \pfile{renderer.php}. Die Datei \pfile{renderable.php} implemeniert hingegen ein Interface, welches für die Verwendung des moodleinternen Renderers notwendig ist \cite{moodleRenderer}. Die in der Datei  \pfile{renderer.php} enthaltende Klasse \pfile{mod\_dsbuilder\_renderer} enthält Funktionen zum Erstellen der für den DSBuilder benötigten Ansichten. So können Übersichten über laufende oder eingereichte Abgaben oder Notentabellen generiert werden.
 \begin{figure}[htbp] 
 \lstinputlisting[language=PHP, caption=Aufruf zur Initialisierung eines JSDot-Graphs, frame=single, label=code:initGraphEditor]{code/initDSBuilder.php}
 \end{figure}
@@ -71,10 +80,11 @@ Ebenso können Ansichten zur Aufgabenbearbeitung generiert werden. Hierbei überni
 
 \paragraph{Modulinterne AJAX-API} \hfill \\
 Zur asynchronen Datenübertragung zwischen Browser und Server stellt das Moodlemodul eine AJAX Api zur Verfügung. 
-Der Quellcode \ref{code:ajax} zeigt einen Codeausschnitt aus der \pfile{ajax\_request.php}, in dem die möglichen Aktionen definiert sind, die nach einer AJAX-Anfrage durchgeführt werden können. Hierbei handelt es sich um die Funktionen, welche über die Knöpfe unterhalb des Grapheneditors (vergl. Kapitel \ref{sec:funktionalitaet}, Abschnitt Studierender) angestoßen werden können. Explizit handelt es sich um die Funktionen \textit{Syntax prüfen} (Quellcode \ref{code:ajax}, Z. 2), \textit{Speichern und weiter} (Quellcode \ref{code:ajax}, Z. 6) und \textit{Letzten Schritt wiederholen} (Quellcode \ref{code:ajax}, Z. 10). Die jeweils angestoßenen Funktionen sind in der \pfile{ajax\_helper.php} definiert.
+\pfile{ajax\_helper.php} definiert.
 \begin{figure}[htbp] 
-\lstinputlisting[language=PHP, caption=AJAX API, frame=single, label=code:ajax]{code/ajax.php}
+\lstinputlisting[language=PHP, caption=Ausschnitt AJAX API, frame=single, label=code:ajax]{code/ajax.php}
 \end{figure}
+Der Quellcode \ref{code:ajax} zeigt einen Codeausschnitt aus der \pfile{ajax\_request.php}, in dem die möglichen Aktionen definiert sind, die nach einer AJAX-Anfrage durchgeführt werden können. Hierbei handelt es sich um die Funktionen, welche über die Knöpfe unterhalb des Grapheneditors (vergl. Kapitel \ref{sec:funktionalitaet}, Abschnitt \textit{Studierender}) angestoßen werden können. Explizit handelt es sich um die Funktionen \textit{Syntax prüfen} (Quellcode \ref{code:ajax}, Z. 2), \textit{Speichern und weiter} (Quellcode \ref{code:ajax}, Z. 6) und \textit{Letzten Schritt wiederholen} (Quellcode \ref{code:ajax}, Z. 10). Die jeweils angestoßenen Funktionen sind in der 
 Von dort aus werden weitere Funktionen zur Datenstrukturverarbeitung in der Klasse \pfile{jsdot\_graph} angestoßen. Diese Funktionen werden im nächsten Abschnitt vertiefender behandelt.
 
 \paragraph{Die Datenhaltung} \hfill \\
@@ -88,28 +98,32 @@ Das Modul DSBuilders benötigt vier Entitäten für seine Datenhaltung. Es handelt 
 Nachdem das Modul neu in einem Kurs initialisiert worden ist, wird ein neues Datum der Entität \textit{DSBuilder} angelegt. Die der neuen Instanz des Moduls vom Lehrenden zugewiesenen Javadateien werden als Datum der Entität \textit{Assigment File}  gespeichert. Sobald Studierende die Instanz nutzen, wird für jeden Studierenden mit Vermerk auf die Instanz ein neues Datum der Entität \textit{Submission} angelegt. Jeder \textit{Submission} werden \textit{Submission Steps} zugeordnet. Sie beinhalten Informationen über die jeweiligen ausgeführten Schritte. 
 
 \paragraph{Die Datenstrukturverarbeitung} \hfill \\
-In der Datei \pfile{lib/js\_dot\_convert.php} liegt die Funktionalität der Datenstrukturverarbeitung. In ihr sind vier Klassen implementiert, von denen die Klasse \pfile{jsdot\_ graph} eine Schnittstelle zur Konvertierung einer Datenstruktur zwischen dem Grapheneditor im Frontend und der Datenhaltung im Backend bietet. Abbildung \ref{fig:umlJsDotConvert} zeigt ein UML-Klassendiagramm der vier Klassen.
+In der Datei \pfile{lib/js\_dot\_convert.php} liegt die Funktionalität der Datenstrukturverarbeitung. In ihr sind vier Klassen implementiert, von denen die Klasse \pfile{jsdot\_ graph} eine Schnittstelle zur Konvertierung einer Datenstruktur zwischen dem Grapheneditor im Frontend und der Datenhaltung im Backend bietet. Des weiteren repräsentiert diese Klasse die Datenstruktur, die im jsdot-Editor zur Präsentation eines Baumes gebraucht wird. Da ein jsdot-Graph über Knoten und Kanten verfügt, werden diese Elemente in der Datei \pfile{lib/js\_dot\_convert.php} durch die Klassen \pfile{jsdot\_edge} und \pfile{jsdot\_node} repräsentiert. Spezifischere Erläuterungen zu den jsdot-Elemente sind in Kapitel \ref{sec:dsbuilderfrontend} zu finden.
+Abbildung \ref{fig:umlJsDotConvert} zeigt ein UML-Klassendiagramm der vier Klassen.
 \begin{figure}[htbp] 
   \centering
      \includegraphics[width=0.9\textwidth]{graphics/UMjsDotConvert1.jpg}
   \caption{UML js\_dot\_convert}
   \label{fig:umlJsDotConvert}
 \end{figure}
+Die Funktionalität zur Umwandlung zwischen Datenstrukturen für den jsdot-Editor und den Webservice stellt die Klasse \pfile{dsbuilder\_binary\_tree} bereit. 
 
+Die drei öffentlichen Funktionen der Klasse \pfile{dsbuilder\_binary\_tree}, die die wichtigen Funktionalitäten zur Verarbeitung der Datenstruktur bereitstellen, sind die statischen Funktionen 
+\textit{initialize\_with\_binary\_tree\_data\_structure(...)}, \textit{get\_bi- nary\_tree\_data\_ structure(...)} und \textit{compare\_sample\_and\_student\_graph(...)}. Hierbei ermöglichen die erste Funktionen die Umwandlung der Datenstruktur, die der Webservice liefert, in die Datenstruktur für den jsdot-Editor. Die zweite Funktion ermöglicht die Umwandlung in die umgekehrte Richtung. Die dritte Funktion vergleicht zwei Graphen und markiert die sich unterscheidenden Knoten. Sie wird für die Feedbackfunktion genutzt. Im folgenden werden die Funktionen tiefgehender vorgestellt.
 
 \subsubsection{Moodlemodul frontendseitig}
 \label{sec:dsbuilderfrontend}
-Die im Vordergrund stehende Funktionalität des Fronends ist die von der JavaScript-Applikation jsdot bereitgestellte Grapheneditor. 
-
-
-Die zentrale Funktionalität zur Verarbeitung der Nutzereingaben wird im Frontend über die Datei \pfile{dsbuilder.js} Bereitgestellt. Sie organisiert die Kommunikation mit dem Grapheneditor. Der Codeauszug \ref{code:initJsDot} zeigt die Initialisierung eines neuen jsdot-Graphen. 
-\begin{figure}[htbp] 
-\lstinputlisting[language=JavaScript, caption=Initiierung eines JsDot-Graphs, frame=single, label=code:initJsDot]{code/initJsDot.js}
-\end{figure}
+Die im Vordergrund stehende Funktionalität des Fronends ist die von der JavaScript-Applikation jsdot bereitgestellte Grapheneditor. In diesem Grapheneditor  werden von Elemente zur Verfügung gestellt, die vom Studierenden bearbeitet werden können. 
+Die Funktionalität zur Verarbeitung der Nutzereingaben wird über die Datei \pfile{dsbuilder.js} bereitgestellt.
 Des weiteren stellt diese Datei die AJAX-Kommunikation zur Verfügung.
 
 \paragraph{Der Grapheneditor} \hfill \\
-Der Grapheneditor wird
+Der Grapheneditor wird durch die JavaScript-Applikation jsdot bereitgestellt. So kann jsdot über das HTML-Element \textit{svg} Knoten und Kanten bereitstellen, die editierbar sind. Aus diesen Elementen können Strukturen wie Graphen, Bäume oder Listen erstellt werden. Der Codeauszug \ref{code:initJsDot} zeigt die Initialisierung eines neuen jsdot-Graphen. 
+\begin{figure}[htbp] 
+\lstinputlisting[language=JavaScript, caption=Initiierung eines JsDot-Graphs, frame=single, label=code:initJsDot]{code/initJsDot.js}
+\end{figure}
+Weiterhin stellt jsdot eine API zur Verfügung. Über diese API können  neue Elemente zu einem Graphen hinzugefügt werden. Ebenso können bestehende Elemente geändert oder ausgelesen werden. Außerdem kann bei der Initialisierung eines Graphen eingestellt werden, ob der Graph im Bearbeitungsmodus oder im Anzeigemodus bereitgestellt wird. Codebeispiel \ref{code:initJsDot} zeigt die Initialisierung eines Graphen im Bearbeitungsmodus. 
+So wird der Editiermodus verwendet, um einen editierbaren Graphen für die Aufgabenbearbeitung zur Verfügung zu stellen (vergl. Kapitel \ref{sec:funktionalitaet} Abb. \ref{fig:editor} oben). Der Anzeigemodus wird hingegen für das Feedback verwendet (vergl. Kapitel \ref{sec:funktionalitaet} Abb. \ref{fig:editor} unten). Im Frontend findet keine Verarbeitung der Graphen-Datenstruktur statt. Die Graphen-Datenstruktur wird über die im folgenden Abschnitt erläuterte AJAX-API an das Backend gesendet und dort verarbeitet (vergl. Kapitel \ref{sec:dsbuilderbackend} Abschnitt \textit{Datenstrukturverarbeitung}).
 
-
-
+\paragraph{AJAX-Api des Frontends} \hfill \\
+Das Frontend stellt eine AJAX-API zur Echtzeitkommunikation mit dem Moodlemodul bereit. Über die Knöpfe unterhalb des Grapheneditors (vergl. Kapitel \ref{sec:funktionalitaet}, Abschnitt \textit{Studierender}) können die Funktionen der API angestoßen werden. Die Verarbeitung der AJAX-Anfragen wurde bereits in Kapitel \ref{sec:dsbuilderbackend} im Abschnitt \textit{Modulinterne AJAX-API} erläutert. Über AJAX-Anfragen werden Informationen wie die Graphen-Datenstruktur, das Feedback und mögliche Fehler übertragen.
