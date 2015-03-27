@@ -1,14 +1,14 @@
 \section{Grundlagen}
 \label{sec:grundlagen}
-Im folgenden Kapitel werden für dies Arbeit wichtige Grundlagen vorgestellt. Insbesondere handelt es sich um  Einführungen in die Lernplattform Moodle, das E-Assessment und die B-Baum-Datenstruktur.
+Im folgenden Kapitel werden die für diese Arbeit wichtige Grundlagen vorgestellt. Insbesondere handelt es sich um  Einführungen in die Lernplattform Moodle, das E-Assessment und die B-Baum-Datenstruktur.
 
 
 \subsection{Die Lernplattform Moodle}
 \label{sec:moodle}
-Der folgende Abschnitt erläutert, um welche Art System es sich bei der Lernplattform Moodle handelt und stellt weitere wichtige Eigenschaften dieser Plattform dar.
+Der folgende Abschnitt erläutert, um welche Art System es sich bei der Lernplattform Moodle handelt und stellt weitere wichtige Eigenschaften dieser Plattform vor.
 
 \subsubsection{Das Lernmanagement-System Moodle}
-Bei Moodle handelt es sich um ein weltweit anerkanntes Lernmanagement-System \cite[S. 33]{Gertrsch2007}, das Lehrenden, Administratoren und Lernenden eine robuste, sichere und integrierte Plattform bereitstellen soll \cite{moo15d}. Der Name Moodle leitet sich von der Akronymisierung des Ausdrucks \textit{\textbf{M}odular \textbf{O}bject \textbf{O}riented \textbf{D}ynamic \textbf{L}earning \textbf{E}nvironment} ab \cite[S. 33]{Gertrsch2007}.
+Bei Moodle handelt es sich um ein weltweit verbreitetes Lernmanagement-System \cite[S. 33]{Gertrsch2007}, das Lehrenden, Administratoren und Lernenden eine robuste, sichere und integrierte Plattform bereitstellen soll \cite{moo15d}. Der Name Moodle leitet sich von der Akronymisierung des Ausdrucks \textit{\textbf{M}odular \textbf{O}bject \textbf{O}riented \textbf{D}ynamic \textbf{L}earning \textbf{E}nvironment} ab \cite[S. 33]{Gertrsch2007}.
 Moodle ist weiterhin eine frei verfügbares Softwarepaket, da es der GNU Public Lizenz unterliegt \cite{Scheb2009}. Software, welche unter einer GNU Public License vertrieben wird, darf kopiert, benutzt und weiterentwickelt werden. Eine einschränkende Bedingung ist, dass Änderungen oder Weiterentwicklungen den eben genannten Pflichten unterliegen, sie folglich auch veröffentlicht und Dritten zur Verfügung gestellt werden müssen \cite{moo15a}. Die Plattform wird von einer weltweiten Gemeinschaft und von der Moodle Pty. Ltd. laufend weiterentwickelt. Vom australischen Moodle Erfinder Marign Dougiamas wird das Projekt zielgerichtet geleitet. Des weiteren gibt es ein Netzwerk professioneller Partnerunternehmen, welche Support und Beratung leisten \cite[S. 12]{Scheb2009}.
 
 Unter einem Lernmanagement-System (LMS) versteht man im wesentlichen ein Management-System für die Automatisierung und die Administration von Ausbildung. Insbesondere sollten LMS über folgende Funktionen verfügen \cite[S. 14]{Schulmeister2005}:
@@ -36,7 +36,7 @@ Die Kommunikationsmethoden, die von Moodle zur Verfügung stellt werden sind Chat
   \label{fig:architekurLMS}
 \end{figure}  
 
-Abbildung \ref{fig:architekurLMS} zeigt die idealtypische Architektur eines LMS. Zu sehen ist, dass ein LMS über drei Schichten verfügt. Bei der untersten Schicht handelt es sich um die Datenbankschicht, in der alle Lernobjekte, Benutzerdaten und andere gehalten werden. Die mittlere Schicht stellt Schnittstellen zur Verfügung. Die oberste Schicht stellt die Sicht bereit, über die über die seitens von Administratoren, Dozenten oder Studierenden auf Inhalte zugegriffen werden kann \cite[S. 11]{Schulmeister2005}.
+Abbildung \ref{fig:architekurLMS} zeigt die idealtypische Architektur eines LMS. Zu sehen ist, dass ein LMS über drei Schichten verfügt. Bei der untersten Schicht handelt es sich um die Datenbankschicht, in der alle Lernobjekte, Benutzerdaten und andere Daten gehalten werden. Die mittlere Schicht stellt Schnittstellen zur Verfügung. Die oberste Schicht stellt die Sicht bereit, über die seitens von Administratoren, Dozenten oder Studierenden auf Inhalte zugegriffen werden kann \cite[S. 11]{Schulmeister2005}.
 
 Im Kontext dieser Arbeit wird insbesondere verstärkt auf die Schnittstellenschicht eingegangen. Das Kapitel \ref{sec:modularten} wird eine Möglichkeit zur Einbindung von Modulen in Moodle erläutern. Im Kapitel \ref{sec:eassessement} wird sich sich aber auch mit den Teilbereichen Aufgeben und Tests aus dem Bereich Authoring der Ansichtsschicht auseinandersetzen.
 So wird das Kapitel \ref{sec:eassessement} zeigen, dass Aufgaben und Test für E-Assessments eine wesentliche Rolle spielen, und diese in diesem Kontext über ein LMS abgewickelt werden können.
@@ -44,7 +44,7 @@ So wird das Kapitel \ref{sec:eassessement} zeigen, dass Aufgaben und Test für E-
 
 \subsubsection{Modularten}
 \label{sec:modularten}
-Moodle verfügt über eine umfangreiche Anzahl  an Modularten, von denen eine Auswahl nun in diesem Abschnitt näher beschrieben wird. Da es sich bei dem EASy-DSBuilder um ein \textit{Activity-Modul} handelt, wird die Struktur diese Moduls tiefgehender vorgestellt.
+Moodle verfügt über eine umfangreiche Anzahl  an Modularten, von denen eine Auswahl nun in diesem Abschnitt näher beschrieben wird. Da es sich bei dem EASy-DSBuilder um ein Activity-Modul handelt, wird die Struktur diese Moduls tiefgehender vorgestellt.
 
  
 
@@ -52,10 +52,10 @@ Moodle verfügt über eine umfangreiche Anzahl  an Modularten, von denen eine Ausw
 \paragraph{Blöcke} \hfill \\
 Bei Blöcken handelt es sich um Module, welche über eine einfache Art Interface verfügen, sodass sie auf jeder
 Moodle-Seite hinzugefügt werden können.
-Das Layout einer Moodle-Seite bietet links und rechts von der von der Hautinhaltsspalte jeweils Spalten zum Einbinden von Blöcken. Hauptaufgabe dieser Module ist die Darstellung von zusätzlichen Inhalten oder Daten über verschiedene Sichten. Weiterhin wird die Bearbeitung von Daten über ein Interface ermöglicht \cite{Moo14f}. 
+Das Layout einer Moodle-Seite bietet links und rechts von der Hautinhaltsspalte jeweils Spalten zum Einbinden von Blöcken. Hauptaufgabe von Block-Modulen ist die Darstellung von zusätzlichen Inhalten oder Daten, die über verschiedene Sichten aufgearbeitet werden können. Weiterhin wird die Bearbeitung von Daten über ein Interface ermöglicht \cite{Moo14f}. 
 
 \paragraph{Themem} \hfill \\
-Mit diesem Modul lässt sich die Darstellung einer Moodle-Distribution bearbeiten. Hierbei können Themen auf verschiedene Ebenen angewandt werden. Ebenen sind beispielsweise die gesamte Moodle-Seite, Kurskategorien oder einzelne Kursseiten. Über diese Module schafft Moodle eine klare Trennung zwischen Präsentationsschicht und funktionaler Schicht \cite{Moo14f}.
+Mit diesem Modul lässt sich die Darstellung einer Moodle-Distribution bearbeiten. Hierbei können Themen-Module auf verschiedene Ebenen angewandt werden. Ebenen sind beispielsweise die gesamte Moodle-Seite, Kurskategorien oder einzelne Kursseiten. Über diese Module schafft Moodle eine klare Trennung zwischen Präsentationsschicht und funktionaler Schicht \cite{Moo14f}.
 
 \paragraph{Kursformate} \hfill \\
 Dieses Modul dient zur Anpassung der Struktur von Kursen. Insbesondere wird in diesen Modulen definiert, wie die Hauptseite eines Kurses aufgebaut ist, wie der Navigationsbaum innerhalb eines Kurses erstellt wird und wie die einzelnen Kursbereiche
@@ -65,7 +65,7 @@ strukturiert sind \cite{Moo14b}.
 Bei lokalen Modulen handelt es sich um Module, die eingesetzt werden können, wenn kein anderes Modul passend erscheint. Typische Anwendungsfälle für diese Art von Modul sind das Einbinden externer Systeme wie Webserver oder das Erweitern des Navigationsblocks um eigene Menüpunkte \cite{Moo14e}.
 
 \paragraph{Activity-Module} \hfill \\
-\textit{Activity Plugins} bieten in erster Linie Kursaktivitäten wie Foren, Hausarbeiten, Quizze und Workshops \cite{moo15g}. Weiterhin bietet Moodle eine Schnittstelle, sodass \textit{Acitvity Moduls} selbst implementiert werden können.
+Activity-Module stellen in erster Linie Kursaktivitäten wie Foren, Hausarbeiten, Quizze und Workshops zur Verfügung \cite{moo15g}. Weiterhin bietet Moodle eine Schnittstelle, sodass Activity-Module selbst implementiert werden können.
 Es muss jedoch eine bestimmte Datenstruktur implementiert werden. Diese besteht aus separaten Unterverzeichnissen und verpflichtenden Dateien. Des weiteren haben Entwickler die Möglichkeit weitere Dateien selbst zu gestalten \cite{moo15b}. Die verpflichtende Struktur sieht wie folgt aus:
 \hfill \\ \hfill \\ 
 \pfile{/<modname>/backup} \hfill \\ 
@@ -74,9 +74,9 @@ Dieser Ordner dient zur Ablage aller Dateien, welche definieren, wie sich das Mo
 \hfill \\ 
 \pfile{/<modname>/db}
 \begin{itemize} 
-	\item \pfile{/access.php} In dieser Datei werden die so genannten \textit{capabilities} für das Plugin definiert. \textit{capabilities} beschreiben die Berechtigungen, welche eine Rolle in diesem Plugin zugeordnet bekommt. Eine Berechtigung ist beispielsweise das hinzufügen einer neuen Instanz diese Plugins zu einem Kurs \cite{moo15b}.
+	\item \pfile{/access.php} In dieser Datei werden die so genannten \textit{capabilities} für das Plugin definiert. \textit{Capabilities} beschreiben die Berechtigungen, welche eine Rolle in diesem Plugin zugeordnet bekommt. Eine Berechtigung ist beispielsweise das hinzufügen einer neuen Instanz diese Plugins zu einem Kurs \cite{moo15b}.
 	\item \pfile{/install.xml} Diese Datei wird bei der Installation des Moduls benutzt. Sie definiert, welche Datenbanktabellen und -felder erstellt werden. Hierfür wird das XML-Format verwendet. Braucht das Modul keine weiteren Tabellen oder Spalten, so kann auf diese Datei verzichtet werden \cite{moo15b}.
-	\item \pfile{upgrade.php} Auf Grund dessen, dass die Datei \pfile{install.xml} nur einmal während der Installation aufgeführt wird, braucht es eine Methode um die Datenbank nachträglich um Tabellen oder Spalten zu erweitern. Diese Funktionalität wird von dieser Datei bereitgestellt und kommt bei einem Update des Moduls zum Einsatz \cite{moo15b}.
+	\item \pfile{upgrade.php} Auf Grund dessen, dass die Datei \pfile{install.xml} nur einmal während der Installation aufgeführt wird, braucht es eine Methode, um die Datenbank nachträglich um Tabellen oder Spalten zu erweitern. Diese Funktionalität wird von dieser Datei bereitgestellt und kommt bei einem Update des Moduls zum Einsatz \cite{moo15b}.
 \end{itemize}
 \hfill \\ 
 \pfile{/<modname>/lang} \hfill \\ 
@@ -84,7 +84,7 @@ In diesem Ordner können alle \textit{Strings} gespeichert werden, die im Modul b
 
 \hfill \\ 
 \pfile{/<modname>/pix} \hfill \\ 
-Dieser Ordner dient dazu das Logo des Moduls zu speichern, welches neben dem Modulname erscheint. Der Name des Logos muss \pfile{icon.gif} lauten. Weiterhin besteht die Möglichkeit weitere Bilder in diesem Ordner zu speichern
+Dieser Ordner dient zum speichern des Logo des Moduls, welches in der Modulauswahl neben dem Modulnamen erscheint. Der Name des Logos muss \pfile{icon.gif} lauten. Weiterhin besteht die Möglichkeit weitere Bilder, die im Modul verwendet werden sollen, in diesem Ordner zu speichern
 \cite{moo15b}.
 
 \hfill \\ \hfill \\ 
@@ -97,13 +97,13 @@ Moduls vorangestellt, gefolgt von einem Unterstrich und dem Funktionsnamen
 die Datei \pfile{/lib.php} keine Klasse definiert, welche Namenskonflikte verhindern. Es wird geraten Funktionalitäten, welche einen hohen Codeumfang haben, der Übersichtlichkeit halber in eine Datei namens \pfile{locallib.php} auszulagern.
 würde. \cite{moo15c}
 	
-	\item \pfile{/mod\_form.php}  Diese Datei wird beim Hinzufügen oder Bearbeiten eines Kurses genutzt. Es enthält die Elemente welche im Editiermenü des Moduls zu sehen sind. Die in dieser Datei enthaltende Klasse muss der Namenskonvention nach in der Form 
+	\item \pfile{/mod\_form.php}  Diese Datei wird beim Hinzufügen oder Bearbeiten eines Kurses genutzt. Es enthält die Elemente, welche im Editiermenü des Moduls zu sehen sind. Die in dieser Datei enthaltende Klasse muss der Namenskonvention nach in der Form 
 	\pfile{mod\_<modname>\_mod\_form} benannt sein.
 	
-	\item \pfile{/index.php} Diese Datei wird von Moodle dazu genutzt, um auf Aktivitäten bei allen Instanzen dieses Moduls, welche einem bestimmten Kurs übergeben wurden, zu hören. Diese Datei ist spezifisch für diese Modulart \textit{Activity Module}.
+	\item \pfile{/index.php} Diese Datei wird von Moodle dazu genutzt, um auf Aktivitäten bei allen Instanzen dieses Moduls, welche einem bestimmten Kurs übergeben wurden, zu hören. Diese Datei ist spezifisch für diese Modulart.
 	
 	\item \pfile{/view.php} Diese Datei wird bei der Erzeugung der Anzeige benötigt. Beim Aufrufen eines Moduls über die Kurssicht wird auf diese Datei verwiesen.  Dabei wird dieser Datei die Instanz-ID übergeben, anhand welcher
-die Daten der Instanz ausgewählt und angezeigt werden können. Diese Datei ist spezifisch für diese Modulart \textit{Activity Module}.
+die Daten der Instanz ausgewählt und angezeigt werden können. Diese Datei ist spezifisch für diese Modulart.
 	
 	\item \pfile{/version.php} Diese Datei enthält die aktuelle Versionsnummer dieses Moduls. Außerdem enthält diese Datei weitere Attribute wie beispielsweise die Mindestanforderungen hinsichtlich der Moodleplattform.
 	
@@ -127,7 +127,7 @@ E-Assessment-Systeme können des Weiteren Nutzen für Lehrende und Lernende bieten
 \item \textbf{Formative Assessments} ermöglicht Studierenden und Lehrenden einen Überblick über den aktuellen Lernstand zu erhalten. Eine Einschätzung wird Studierenen insbesondere über ein zeitnahes Feedback gegeben.
 \item \textbf{Summative Assessments} bieten eine Bewertungsgrundlage über den Lernfortschritt eines Studierenden. Bei diesem Typen steht im Gegensatz zum Feedback die Notengebung im Vordergrund.
 \end{itemize}
-So wird in den folgenden Abschnitten auf formative Assessment eingegangen, indem E-Assessments als Teilbereich des Lernprozesses vorgestellt werden. Anschließend werden summative Assessments behandelt, indem tiefgehender auf den Aspekt des Leistungsnachweises im Zusammenhang mit E-Assessment eingegangen wird.
+Es wird in den folgenden Abschnitten auf formative Assessment eingegangen, indem E-Assessments als Teilbereich des Lernprozesses vorgestellt werden. Anschließend werden summative Assessments behandelt, indem tiefgehender auf den Aspekt des Leistungsnachweises im Zusammenhang mit E-Assessment eingegangen wird.
 
 \subsubsection{E-Assessment als Teilbereich des Lernprozesses}
 In der Hochschullehre nehmen Leistungsüberprüfungen einen integralen Bestandteil in Lehr- und Lernprozessen ein. Ein Augenmerk liegt hierbei auf der Identifizierung und Bewertung individueller Lernfortschritte \cite[S. 23 f.]{Kuchen2010}. Darunter wird insbesondere das Prüfen und Bewerten einzelner Übungen als Teil einer pädagogischen Handlungseinheit verstanden. Dabei können die verschiedenen Übungsphasen und -iterationen unterschiedliche Längen und inhaltliche Abhängigkeiten haben \cite[S. 25]{Kuchen2010}. Abbildung \ref{fig:Uebungsbetrieb} zeigt den Lehr-Lern-Prozess eines Übungsbetriebs.
@@ -144,13 +144,13 @@ Im Regelfall beginnt ein Übungszyklus mit der Phase der Lehre. In dieser Phase v
 
 
 Weiterhin sind Leistungsüberprüfungen ein integraler Bestandteil der Lehr- und Lernprozesse. So sollen wöchentliche Übungszettel dazu beitragen, dass das von Studierenden erlernte theoretische Wissen durch Bearbeitung geeigneter Aufgaben reflektiert und verinnerlicht wird. Insbesondere gestaltet sich das Halten von klassischen Präsenzübungen bei knappen finanziellen Ressourcen schwer. Eine Möglichkeit trotz Reduktion des Aufwands eine langfristige hohe Qualität des Übungsbetriebs zu gewährleisten ist in E-Assessment zu sehen. \cite[S. 24]{Kuchen2010}. 
-In den meisten Systemen, welche E-Assessment anbieten werden jedoch nur einfache Aufgabentypen wie Multiple-Choice-Aufgaben oder Lückentexte unterstützt. Über solche Aufgabentypen können Wissenszuwächse gut geprüft werden, kognitive Fähigkeiten und Methodenwissen jedoch nur bedingt. Insbesondere in naturwissenschaftlichen oder technischen Disziplinen wie der Informatik ist die Kontrolle und Überprüfung von Aufgaben, bei denen die Anwendung analytischer, kreativer und konstruktiver Fähigkeiten gefordert ist besonders wichtig. So entwickelte beispielsweise die WWU Münster das E-Assessment-System EASy für das Informatikstudium, welches durch die Bereitstellung von einfachen Aufgabentypen wie dem Multiple-Choice, aber auch anspruchsvoller Aufgabentypen zu mathematischen Beweisen und Programmierung\cite[S. 24]{Kuchen2010}. So zeigte die Evaluation dieses Systems im Praxiseinsatz, dass der Lernprozess unterstützt wurde und insbesondere der Übungsbetrieb von diesem System profitiert hat. Weiterhin stellte die Evaluation in Ausblick, dass solche Systeme auch auf eine Vielzahl von anderen Bildungseinrichtungen übertragen werden kann \cite[S. 34]{Kuchen2010}. 
+In den meisten Systemen, welche E-Assessment anbieten werden jedoch nur einfache Aufgabentypen wie Multiple-Choice-Aufgaben oder Lückentexte unterstützt. Über solche Aufgabentypen können Wissenszuwächse gut geprüft werden, kognitive Fähigkeiten und Methodenwissen jedoch nur bedingt. Insbesondere in naturwissenschaftlichen oder technischen Disziplinen wie der Informatik ist die Kontrolle und Überprüfung von Aufgaben, bei denen die Anwendung analytischer, kreativer und konstruktiver Fähigkeiten gefordert ist besonders wichtig. So entwickelte beispielsweise die WWU Münster das E-Assessment-System EASy für das Informatikstudium, welches einfache Aufgabentypen wie dem Multiple-Choice, aber auch anspruchsvolle Aufgabentypen zu mathematischen Beweisen und Programmierung bereitstellt \cite[S. 24]{Kuchen2010}. Die Evaluation dieses Systems im Praxiseinsatz zeigte, dass der Lernprozess unterstützt wurde und insbesondere der Übungsbetrieb von diesem System profitiert hat. Weiterhin stellte die Evaluation in Ausblick, dass solche Systeme auch auf eine Vielzahl von anderen Bildungseinrichtungen übertragen werden könnten \cite[S. 34]{Kuchen2010}. 
 
 
 \subsubsection{E-Assessment als Methode des Leistungsnachweises}
-Neben Leistungsüberprüfungen als Bestandteil des Lehr- und Lernprozesses kann E-Assessment auch für einen Leistungsnachweis herangezogen werden. Als Leistungsnachweis wird die abschließende Leistungserbringung zum Bestehen einer Lehrveranstaltung oder eines Modul angesehen. So werden Leistungsnachweise klassisch durch Klausuren, Referate oder Studienarbeiten repräsentiert. Wir also E-Assessment als Leistungsnachweis eingesetzt, kann man davon sprechen, dass anstatt einer traditionellen Prüfungsform eine vergleichbare elektronische Durchführungsvariante gewählt wurde \cite[S. 18]{Ruedel2010}. Der folgende Abschnitt beschäftigt sich mit der Gegenüberstellung von traditionellen Prüfungsformen und elektronischen Äquivalenten. 
+Neben Leistungsüberprüfungen als Bestandteil des Lehr- und Lernprozesses kann E-Assessment auch für einen Leistungsnachweis herangezogen werden. Als Leistungsnachweis wird die abschließende Leistungserbringung zum Bestehen einer Lehrveranstaltung oder eines Modul angesehen. So werden Leistungsnachweise klassisch durch Klausuren, Referate oder Studienarbeiten repräsentiert. Wird also E-Assessment als Leistungsnachweis eingesetzt, kann man davon sprechen, dass anstatt einer traditionellen Prüfungsform eine vergleichbare elektronische Durchführungsvariante gewählt wurde \cite[S. 18]{Ruedel2010}. Der folgende Abschnitt beschäftigt sich mit der Gegenüberstellung von traditionellen Prüfungsformen und elektronischen Äquivalenten. 
 
-Ein klassisches Beispiel für einen Leistungsnachweis ist die schriftliche Prüfung. Ihr elektronisches Äquivalent ist die E-Prüfung bzw. E-Klausur, welche offene und geschlossene Fragen verwendet um Lehrinhalte zu prüfen. Oft wird sie als computerunterstützende Prüfung mit Multiple-Choice-Fragen verstanden, jedoch sind auch offene Fragen sehr effektiv. So kann beispielsweise durch die verbesserte Lesbarkeit die Korrekturzeit verkürzt werden. Weiterhin kann unter Elektronic Submission der automatisierte elektronische Abgabeprozess von schriftlichen Arbeiten wie Protokollen, Seminar- und Hausarbeiten verstanden werden. Hierbei kann beispielsweise in Lernplattformen Ablagemöglichkeiten zur fristgerechten Abgabe bereitgestellt werden. Daneben können  Simulationen am Computer komplexe wissenschaftspraktische Tätigkeiten übernehmen. Derweise können Simulationen die Bewertung typischer Labortätigkeiten wie beispielsweise die Handhabung von Mikroskopen oder die Interpretation von Röntgenbildern übernehmen. Außerdem könne beispielsweise Foren als Bewertungsmöglichkeit von mündlicher Mitarbeit dienen. Ebenso kann können Wikis eine Präsentationsmöglichkeit einer erbrachten Gruppenleistung dienen. So kann abschließen E-Assessment als Methode der Leistungserbringung als Substitutionsmodell verschiedener klassischer Beurteilungsmethoden verstanden werden \cite[S. 18 ff.]{Ruedel2010}.
+Ein klassisches Beispiel für einen Leistungsnachweis ist die schriftliche Prüfung. Ihr elektronisches Äquivalent ist die E-Prüfung bzw. E-Klausur, welche offene und geschlossene Fragen verwendet um Lehrinhalte zu prüfen. Oft wird sie als computerunterstützende Prüfung mit Multiple-Choice-Fragen verstanden, jedoch sind auch offene Fragen sehr effektiv. So kann beispielsweise durch die verbesserte Lesbarkeit die Korrekturzeit verkürzt werden. Weiterhin kann unter Elektronic Submission der automatisierte elektronische Abgabeprozess von schriftlichen Arbeiten wie Protokollen, Seminar- und Hausarbeiten verstanden werden. Hierbei kann beispielsweise in Lernplattformen Ablagemöglichkeiten zur fristgerechten Abgabe bereitgestellt werden. Daneben können  Simulationen am Computer komplexe wissenschaftspraktische Tätigkeiten übernehmen. Derweise können Simulationen die Bewertung typischer Labortätigkeiten wie beispielsweise die Handhabung von Mikroskopen oder die Interpretation von Röntgenbildern übernehmen. Außerdem können Foren als Bewertungsmöglichkeit für mündliche Mitarbeit dienen. Ebenso kann ein Wikis als Präsentationsmöglichkeit einer erbrachten Gruppenleistung dienen. So kann abschließen E-Assessment als Methode der Leistungserbringung als Substitutionsmodell verschiedener klassischer Beurteilungsmethoden verstanden werden \cite[S. 18 ff.]{Ruedel2010}.
 
 
 
