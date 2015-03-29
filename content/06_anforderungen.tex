@@ -1,39 +1,52 @@
-\section{Konzeptionelle Anforderungen an ein E-Learning-Modul zum Assessment von
+\section{Anforderungen an ein E-Learning-Modul zum Assessment von
 B-Baum-Datenstrukturen}
 \label{sec:anforderungen}
 
-In diesem Kapitel werden die bestehenden Anforderungen an ein E-Learning-Modul zum Assessment von B-Baum-Datenstrukturen vorgestellt und näher erläutert. Da es sich bei diesem E-Learning-Modul um den bereits existierenden EASy-DSBuilder handelt, welcher lediglich um die Funktion des Assessments von
-B-Baum-Datenstrukturen erweitert werden muss, stellt das Kapitel \ref{sec:neuanforderungen} die Neuanforderungen an den EASy-DSBuilder vor. Anschließend wird in Kapitel \ref{sec:konzeptGrapheneditor} tiefgehender auf die Anforderungen des Grapheneditors eingegangen.
+In diesem Kapitel werden die bestehenden Anforderungen an ein E-Learning-Modul zum Assessment von B-Baum-Datenstrukturen vorgestellt und näher erläutert. Das im Rahmen dieser Arbeit vorgestellte Assessment-Konzept bezieht sich auf die Erweiterung des Moodle-Moduls EASy-DSBuilder, welches um die Funktion des Assessments von
+B-Baum-Datenstrukturen erweitert werden muss. Diesbezüglich stellt das Kapitel \ref{sec:neuanforderungen} die Anforderungen an das B-Baum-Assessment im EASy-DSBuilder vor. Anschließend wird in Kapitel \ref{sec:konzeptGrapheneditor} tiefgehender auf die Anforderungen des Grapheneditors eingegangen. 
 
 
-\subsection{Neuanforderungen an den EASy-DSBuilder}
+\subsection{Anforderungen an das B-Baum-Assessment im EASy-DSBuilder}
 \label{sec:neuanforderungen}
-In diesem Kapitel werden die Anforderungen an die Erweiterungen des EASy-DSBuilders vorgestellt und näher erläutert. Die Hauptanforderung lautet:
-\begin{quote}
-Der EASy DSBuilder soll um die Datenstruktur B-Baum erweitert werden.
-\end{quote}
-Aus dieser Hauptanforderung lassen sich weitere Unteranforderungen Ableiten.
-\paragraph{(1) Dem Studierenden muss ein Assessment einer B-Baum-Datenstruktur durchführen können} 
-\begin{quote}
-Dem Studierenden wird eine graphische Oberfläche bereitgestellt, auf der ein Assessment einer B-Baum-Datenstruktur möglich ist. Hierfür braucht es insbesondere einen Editor, der eine B-Baum-Grundstruktur mit Kanten und Knoten bestehen. Auf dieser soll es möglich sein Schlüssel zu positionieren. 
-\end{quote}
-Mit dieser Anforderung ist die grundlegende Funktionalität des Moduls, die das Assessment von B-Baum-Datenstrukturen ermöglichen soll, begründet. Wie in Kapitel \ref{sec:funktionalitaet} erläutert verfügt der EASy-DSBuilder über die Funktionalität des Assessments von AVL-Bäumen. So soll das Assessment von B-Baum-Datenstrukturen den selben Funktionalen Umfang des AVL-Baum-Assessments haben. Hierzu gehören folgende Funktionen. Das Assessment geht über 10 Schritte, in denen der Baumstruktur jeweils ein neuer Schüssel hinzugefügt werden soll. Der Studierende erhält einen Überblick über den aktuellen Stand der Aufgabe, die er bearbeitet. Der Studierende erhält einen Editor zum Assessment  von B-Baumstrukturen. Der Studierende kann die Syntax seiner Eingabe prüfen. Der Studierende kann seine Eingabe abgeben. Der Studierende kann den aktuellen Schritt seiner Eingabe zurücksetzen. Der Studierende kann den vorherigen Schritt seiner Eingabe zurücksetzen. Es soll die Möglichkeit des Feedbacks gegeben werden. Im folgenden Verlauf wird detaillierter auf die soeben genannten Anforderungen eingegangen.
+In diesem Kapitel werden die Anforderungen an die Erweiterungen des EASy-DSBuilders um das B-Baum-Assessment vorgestellt und näher erläutert. Die Anforderungen wurden im Gespräch mit dem Verantwortlichen für das Moodle-Modul EASy-DSBuilder ermittelt. 
+Hierbei wurden die Anforderungen in die Kategorien \textit{Funktionale} und \textit{Nicht-Funktionale Anforderungen} unterteilt \cite{}. \textit{Funktionale Anforderungen} beschreiben Fähigkeiten des Systems, die von einem Anwender erwartet werden, damit mit Hilfe dieses Systems ein fachliches Problem gelöst werden kann. \textit{Nicht-Funktionale Anforderungen} definieren hingegen die grundlegenden Eigenschaften des Systems. Über Userstories werden die Anforderungen veranschaulicht.
 
-\paragraph{() Das Assessment soll zehnschrittig sein}
+%Die Hauptanforderung lautet:
+%\begin{quote}
+%Der EASy DSBuilder soll um die Datenstruktur B-Baum erweitert werden.
+%\end{quote}
+%Aus dieser Hauptanforderung lassen sich weitere Unteranforderungen Ableiten.
+%\paragraph{(1) Dem Studierenden muss ein Assessment einer B-Baum-Datenstruktur durchführen können} 
+%\begin{quote}
+%Dem Studierenden wird eine graphische Oberfläche bereitgestellt, auf der ein Assessment einer B-Baum-Datenstruktur möglich ist. Hierfür braucht es insbesondere einen Editor, der eine B-Baum-Grundstruktur mit Kanten und Knoten bestehen. Auf dieser soll es möglich sein Schlüssel zu positionieren. 
+%\end{quote}
+%Mit dieser Anforderung ist die grundlegende Funktionalität des Moduls, die das Assessment von B-Baum-Datenstrukturen ermöglichen soll, begründet. Wie in Kapitel \ref{sec:funktionalitaet} erläutert verfügt der EASy-DSBuilder über die Funktionalität des Assessments von AVL-Bäumen. So soll das Assessment von B-Baum-Datenstrukturen den selben Funktionalen Umfang des AVL-Baum-Assessments haben. Hierzu gehören folgende Funktionen. Das Assessment geht über 10 Schritte, in denen der Baumstruktur jeweils ein neuer Schüssel hinzugefügt werden soll. Der Studierende erhält einen Überblick über den aktuellen Stand der Aufgabe, die er bearbeitet. Der Studierende erhält einen Editor zum Assessment  von B-Baumstrukturen. Der Studierende kann die Syntax seiner Eingabe prüfen. Der Studierende kann seine Eingabe abgeben. Der Studierende kann den aktuellen Schritt seiner Eingabe zurücksetzen. Der Studierende kann den vorherigen Schritt seiner Eingabe zurücksetzen. Es soll die Möglichkeit des Feedbacks gegeben werden. Im folgenden Verlauf wird detaillierter auf die soeben genannten Anforderungen eingegangen.
+
+\subsubsection{Funktionale Anforderungen}
+Im Folgenden werden die \textit{Funktionalen Anforderungen} für ein Modul zum Assessment  von B-Baumstrukturen beschrieben.
+\paragraph{(1) Didaktische Qualität soll erhalten bleiben}
+\begin{quote}
+Das E-Assessment soll sich im Schwierigkeitsgrad qualitativ nicht vom papierbasiertem Assessment unterscheiden. 
+\end{quote}
+Das Assessment soll so aufgebaut sein, dass es der Struktur eines papierbasierten Assessments entspricht. Insbesondere bedeutet dies, dass die Bearbeitungsmöglichkeiten aus didaktischer Sicht nicht eingeschränkt werden dürfen.
+Eingeschränkt aus didaktischer Sicht bedeutet in diesem Kontext, dass den Studierenden während in der soeben beschriebenen Aufgabenbearbeitung im Verglich zur papierbasierten Aufgabenbearbeitung Bearbeitungsvariationen bei der Lösungsfindung vorenthalten werden. 
+
+
+\paragraph{(2) Das Assessment soll zehnschrittig sein}
 \begin{quote}
 Das Assessment soll über 10 Schritte gehen, in denen der Baumstruktur pro Schritt jeweils ein neuer Schüssel hinzugefügt wird.
 \end{quote}
 Ebenso wie beim Assessment des AVL-Baums soll das Assessment des B-Baums über zehn Schritte gehen. Pro Schritt wird dem Studenten hierbei ein neuer Schlüssel zur Verfügung gestellt, die er in den bereits vorhanden B-Baum einfügen können soll. Nachdem die zehn Schritte absolviert sind, soll der Studierende darüber informiert werden, dass er die gesamte Aufgabe absolviert hat.
 
 
-\paragraph{() Der Studierende soll einen Überblick über den aktuellen Aufgabenstand erhalten}
+\paragraph{(3) Der Studierende soll einen Überblick über den aktuellen Aufgabenstand erhalten}
 \begin{quote}
 Der Studierende soll die Möglichkeit erhalten einen Überblick über den aktuellen Stand der Aufgabe, die er bearbeitet, zu bekommen.
 \end{quote}
 Ebenso wie beim Assessment des AVL-Baums soll das Assessment des B-Baums über eine Übersicht über dein aktuellen Stand der Aufgabe bereitstellen. Auf dieser Übersicht erhält der Studierende Informationen darüber, wie viel Prozent er bereits absolviert hat, in welchem Schritt er sich befindet und welcher Schlüssel in diesem Schritt zum Einfügen bereitgestellt wurde.
 
 
-\paragraph{() Der Studierende soll einen Editor zum Assessment  von B-Baumstrukturen erhalten}
+\paragraph{(4) Der Studierende soll einen Editor zum Assessment  von B-Baum-Datenstrukturen erhalten}
 \begin{quote}
 Der Studierende soll die Möglichkeit bekommen, eine B-Baum-Datenstruktur innerhalb eines Editors so zu bearbeiten, dass er die Aufgabenstellung jedes Schrittes lösen kann.
 \end{quote}
@@ -41,85 +54,58 @@ Ebenso wie beim Assessment des AVL-Baums soll das Assessment des B-Baums über ei
 Die Elemente, die durch den Editor bereitgestellt werden sollen, sind Kanten, Knoten und Schlüssel. Es soll möglich sein, aus diesen Elementen eine syntaktisch korrekten B-Baum zu erstellen. Des weiteren muss der Editor Funktionalitäten bereitstellen, die das Einfügen eines neuen Schlüssels in einen bereits bestehenden B-Baum ermöglichen.
 
 
-\paragraph{() Der Studierende soll die Syntax seiner Eingabe prüfen können}
-\begin{quote}
-
-\end{quote}
-
-\paragraph{() Der Studierende soll seine Eingabe abgeben können}
-\begin{quote}
-
-\end{quote}
-
-
-
-\paragraph{() Der Studierende soll den aktuellen Schritt seiner Eingabe zurücksetzen können}
-\begin{quote}
-
-\end{quote}
-
-\paragraph{() Der Studierende soll den vorherigen Schritt seiner Eingabe zurücksetzen können}
-\begin{quote}
-
-\end{quote}
-
-\paragraph{() Es soll die Möglichkeit des Feedbacks gegeben werden}
+\paragraph{(5) Es soll die Möglichkeit des Feedbacks gegeben werden}
 \begin{quote}
 Je nach Einstellung des Lehrenden soll der Studierende bei falscher Eingabe in Feedback bekommen.
 \end{quote}
 Momentan besteht die für den Lehrenden die Möglichkeit ein Feedback für den Studierenden einzustellen. Hat dieser das Feedback aktiviert, so soll während des Assessments von B-Baum-Datenstrukturen bei falscher Eingabe seitens des Studierendem dem Studierenden unterhalb des Editors der B-Baum mit richtig eingefügtem Schlüssel angezeigt werden. Weiterhin sollen die sich in Editor und Feedback unterscheidenden Knoten rot markiert werden. 
 
 
-\paragraph{() Navigationsmöglichkeiten innerhalb einer Aufgabe müssen vorhanden sein}
+\paragraph{(6) Navigationsmöglichkeiten innerhalb einer Aufgabe müssen vorhanden sein}
 \begin{quote}
-Der Studierende soll die Möglichkeit haben, innerhalb der einzelnen Schritte einer Aufgabe zu Navigieren. Zur Navigation gehört das Bestätigen des aktuellen Schritts und das Zurücksetzen auf den vorherigen Schritt.
+Der Studierende soll die Möglichkeit haben, innerhalb der einzelnen Schritte einer Aufgabe zu Navigieren. Zur Navigation gehört die Prüfung der Syntax, das Bestätigen des aktuellen Schritts und das Zurücksetzen des vorherigen und des aktuellen Schritts.
 \end{quote}
 Bisher hat der Studierende die Möglichkeit sich über die Knöpfe \textit{Syntax prüfen}, \textit{Speichern und weiter}, \textit{*Letzten* Schritt wiederholen} und \textit{*Aktuellen* Schritt zurücksetzen} durch eine Aufgabe zu navigieren. Für das Assessment von B-Baum-Datenstrukturen soll diese Art der Navigation beibehalten werden.  %Dies bedeutet, dass der Studierende den aktuellen Aufgabenschritt abgeben kann. Dieser 
 
 
-\paragraph{() Aufgabenschritte müssen auf der vorherigen Eingabe basieren}
+\paragraph{(7) Aufgabenschritte müssen auf der vorherigen Eingabe basieren}
 \begin{quote}
 Bis auf den Initialisierungsschritt müssen alle Aufgabenschritte einer Aufgabe auf der letzten Eingabe des Studierenden basieren.
 \end{quote}
+Ebenso wie beim Assessment des AVL-Baums soll beim Assessment des B-Baums jeder Aufgabenschritt bis auf den Initialisierungsschritt auf der Abgabe des vorherigen Schritts basieren. Dies bedeutet, dass der Studierende, falls er eine fehlerhafte Abgabe getätigt hat, auch mit dieser Abgabe weiterarbeitet.
 
 
-
-\paragraph{() Der Lehrende soll eine Auswahlmöglichkeit erhalten, zwischen Datenstrukturen wählen zu können}
+\paragraph{(8) Der Lehrende soll eine Auswahlmöglichkeit erhalten, zwischen Datenstrukturtypen wählen zu können}
 \begin{quote}
-Der Lehrende soll bei Einrichtung einer neuen Instanz des DSBuilders aus einer Liste mit allen verfügbaren Datenstrukturen die Auswahl treffen können, mit welcher Datenstruktur die Anwendung dem Studierenden bereitgestellt wird.
+Der Lehrende soll bei Einrichtung einer neuen Instanz des DSBuilders aus einer Liste mit allen verfügbaren Datenstrukturtypen die Auswahl treffen können, mit welcher Datenstruktur die Anwendung dem Studierenden bereitgestellt wird.
 \end{quote}
+In der momentanen Version des EASy-DSBuilders wird als Datenstrukturtypen \textit{Tree} defaultmäßig als Datenstruktur übergeben. Dem Lehrenden soll die Möglichkeit gegeben werden, bei der initialen Einstellung einer Instanz des Moduls einen Datenstrukturtypen auszuwählen.
 
+\subsubsection{Nicht-Funktionale Anforderungen}
 
+Im Folgenden werden die \textit{Nicht-Funktionalen Anforderungen} beschrieben.
 
-\begin{itemize}
-\item editirbare graphische Oberfläche zur Erstellung von B-Bäumen
-\item Funktionalität soll beibehalten werden:
-\begin{itemize}
-\item Kommunikation Moodle <---> Web-Server
-\item Schritte werden gespeichert
-\item Eingabe überprüfen
-\item Feedback
-\item farbige Markierung falscher Knoten
-\item Schritt zurück
-\end{itemize}
-\item Lehrender: Auswahl zwischen Typ
-\item alles in einer akzeptablen Zeit.
-\end{itemize}
+\paragraph{(1) Die Laufzeit eines Nutzereingabenverarbeitung soll in vertretbarer Zeit stattfinden}
+\begin{quote}
+Das Modul soll die Eingaben des Studieren in vertretbarer Zeit erkennen und verarbeiten. Den wichtigsten Teil der Verarbeitung nimmt der Umgang mit der Datenstruktur ein.
+\end{quote}
+Das Modul soll aus der Eingabe des Studieren eine B-Baum-Datenstruktur erkennen und sie in eine Datenstruktur umwandeln können, die vom Webservice erkannt und weiterverarbeitet werden kann. Dies soll ein vertretbarer Zeit stattfinden.
+
 
 \subsection{Spezifizierung der konzeptionellen Anforderungen des Grapheneditors}
 \label{sec:konzeptGrapheneditor}
-Wenn man die Anforderungen aus Kapitel \ref{sec:neuanforderungen} auf eine Kernanforderung reduziert, so kann sie darin verstanden werden, dass dem Studierenden ein graphischer Editor zur Verfügung gestellt werden soll, über den ein B-Baum erweitert werden kann. Vergleicht man eine B-Baum mit dem bereits implementierten AVL-Baum, so verfügt der B-Baum über eine weitere editierbare Komponente. Beim AVL-Baum sind Knoten und Schüssel durch ein \textbf{eins-zu-eins-Mapping} unveränderbar miteinander verbunden, beim B-Baum kann ein Knoten jedoch mehrere Schlüssel enthalten, welche aber auch nicht fest an diesen Knoten gebunden sind. Die daraus resultierende Herausforderung ist die drei Komponenten Kante, Knoten und Schlüssel dem Studierenden so zur Verfügung zu stellen, dass der Studierende die Komponenten möglichst intuitiv nutzen kann. Die JavaScript-Applikation jsdot soll dabei beibehalten werden. Es ergaben sich die Möglichkeiten, einen B-Baum komplett aus editierbaren jsdot-Elementen zu implementieren, oder eine B-Baumstruktur in den Hintergrund des Editors zu legen, auf dem die Schlüssel richtig eingeordnet werden müssen. Im Folgenden werden Vor- und Nachteile beider Möglichkeiten vorgestellt.
+Werden die Anforderungen aus Kapitel \ref{sec:neuanforderungen} auf eine Kernanforderung reduziert, kann sie darin verstanden werden, dass dem Studierenden ein graphischer Editor zur Verfügung gestellt werden soll, über den ein B-Baum erweitert werden kann. Vergleicht man eine B-Baum mit dem bereits implementierten AVL-Baum, so verfügt der B-Baum über eine weitere editierbare Komponente. Beim AVL-Baum sind Knoten und Schüssel durch ein \textbf{eins-zu-eins-Mapping} unveränderbar miteinander verbunden, beim B-Baum kann ein Knoten jedoch mehrere Schlüssel enthalten, welche aber auch nicht fest an diesen Knoten gebunden sind. Die daraus resultierende Herausforderung ist die drei Komponenten Kante, Knoten und Schlüssel dem Studierenden so zur Verfügung zu stellen, dass der Studierende die Komponenten möglichst intuitiv nutzen kann. Die JavaScript-Applikation jsdot soll dabei beibehalten werden. Es ergaben sich die Möglichkeiten, einen B-Baum komplett aus editierbaren jsdot-Elementen zu implementieren, oder eine B-Baumstruktur in den Hintergrund des Editors zu legen, auf dem die Schlüssel richtig eingeordnet werden müssen. Im Folgenden werden Vor- und Nachteile beider Möglichkeiten vorgestellt.
 
 \paragraph{B-Baum aus jsdot-Elementen} \hfill \\
-Jsdot bietet die Möglichkeit neben runden auch rechteckige Knoten zu erstellen. Aus diesen könnten Knoten generiert werden. Auf diese Weise könnten Studierende eine B-Baumstruktur auf der Basis dieser Knoten und Kanten erstellen, um darauf die jeweiligen Schlüsselelemente richtig zu positionieren. 
+Jsdot bietet die Möglichkeit neben runden auch rechteckige Editor-Knoten zu erstellen. Aus diesen könnten Baum-Knoten generiert werden. Auf diese Weise könnten Studierende eine B-Baumstruktur auf der Basis dieser Editor-Knoten und -Kanten erstellen, um darauf die jeweiligen Schlüsselelemente richtig zu positionieren. 
 
-Jedoch ergeben sich daraus mehrere Probleme. Zum einen ist die Umsetzung der Positionierung der abwärtsgerichteten Kanten ein Problem. Idealtypisch ist die Positionierung der abwärtsgerichteten Kanten am Anfang oder am Ende eines Knotens oder zwischen zwei Schlüsseln (vergl. Abb. \ref{fig:bbaum}). 
-Dies ist jedoch ohne einen größeren Eingriff in die jsdot-Implementierung nicht möglich. Alternativ können die abwärtsgerichteten Kanten an die Schlüssel gehängt werden, wobei der erste oder letzte Schlüssel eines Knotens über zwei abwärtsgerichtete Kanten verfügt. Die Kanten können dann wie zuvor an Knoten enden. Jedoch kann nicht unterbunden werden, dass Schlüssel oder Kanten untereinander im nicht beabsichtigten Sinn verbunden werden. Daraus resultiert, dass eine Großzahl an möglichen falschen Eingabemöglichkeiten überprüft werden müsste. Auch könnte diese Vorgabe die Usability beeinträchtigen, da sich die geforderte Benutzung der einzelnen Elemente seitens des Studierenden nicht eindeutig nachvollziehbar herausstellen könnte. Des Weiteren bereitet die Höhenhierarchie der einzelnen jsdot-Elemente Probleme. So ist es auf Grund fehlender Dokumentation bezüglich der Höhenhierarchie einzelner Elemente schwer umsetzbar Schlüssel so zu definieren, dass sie Knoten durchgehend überlappen.
+Jedoch ergeben sich daraus mehrere Probleme. Zum einen ist die Umsetzung der Positionierung der abwärtsgerichteten Kanten ein Problem. Idealtypisch ist die Positionierung der abwärtsgerichteten Kanten am Anfang oder am Ende eines Baum-Knotens oder zwischen zwei Schlüsseln (vgl. Kapitel \ref{sec:bbaum}, Abb. \ref{fig:bbaum}). 
+Dies ist jedoch ohne einen größeren Eingriff in die jsdot-Implementierung nicht möglich. Alternativ können die abwärtsgerichteten Kanten an die Schlüssel gehängt werden, wobei der erste oder letzte Schlüssel eines Knotens über zwei abwärtsgerichtete Kanten verfügt. Die Kanten können dann wie zuvor an Knoten enden. Jedoch kann nicht unterbunden werden, dass Schlüssel oder Kanten untereinander im nicht beabsichtigten Sinn verbunden werden. Daraus resultiert, dass eine Großzahl an möglichen falschen Eingabemöglichkeiten überprüft werden müsste. Auch könnte diese Vorgabe die Usability beeinträchtigen, da sich die geforderte Benutzung der einzelnen Elemente seitens des Studierenden als nicht eindeutig nachvollziehbar herausstellen könnte. Des Weiteren bereitet die Höhenhierarchie der einzelnen jsdot-Elemente Probleme. So ist es auf Grund fehlender Dokumentation bezüglich der Höhenhierarchie einzelner Elemente schwer umsetzbar Schlüssel so zu definieren, dass sie Knoten durchgehend überlappen.
 
 
 
 \paragraph{B-Baumstruktur im Hintergrund} \hfill \\
-Die Baumstruktur im Hintergrund bietet den Vorteil, dass nur noch die einzelnen Schlüssel editierbar sein müssen, der Studierende folglich nur noch die Schlüssel an die richtige Position bringen muss. Dies bietet den Vorteil, dass die Richtigkeit über die absolute Position, und nicht Position relativ zu anderen Schlüsseln, geprüft werden kann.  Es ergeben sich  zwei Möglichkeiten eines Hintergrundgraphen. Es kann entweder ein statischer Baum, der durchgehend die gesamte Struktur aufweist, oder ein dynamischer Baum, der sich der Eingabe des Studierenden anpasst,  implementiert werden. Ein statischer Baum erfordert weniger Implementierungsarbeit, ein dynamischer Baum erhöht jedoch die Übersichtlichkeit, da nur benötigte Teile des Baums angezeigt werden. Außerdem bietet ein dynamischer Baum dem Studierenden die Chance die Entwicklung eines B-Baums besser zu veranschaulichen.  implementiert \textbf{kann man das so Schreiben --> ist ja nur meine Meinung} Diesen Vorteilen steht jedoch gegenüber, dass der Studierende aus didaktischer Sicht in seinen Bearbeitungsmöglichkeiten eingeschränkt wurde. Eingeschränkt aus didaktischer Sicht bedeutet in diesem Kontext, dass den Studierenden während in der soeben beschriebenen Aufgabenbearbeitung im Verglich zur papierbasierten Aufgabenbearbeitung Bearbeitungsvariationen bei der Lösungsfindung vorenthalten werden. Insbesondere kann der Studierende die Baumstruktur nicht mehr falsch aufbauen, sodass die Hintergrundstruktur des B-Baums zur Reduktion möglicher Fehlerquellen führt.
+Die Baumstruktur im Hintergrund bietet den Vorteil, dass nur noch die einzelnen Schlüssel editierbar sein müssen, der Studierende folglich nur noch die Schlüssel an die richtige Position bringen muss. Dies bietet den Vorteil, dass die Richtigkeit über die absolute Position, und nicht Position relativ zu anderen Schlüsseln, geprüft werden kann.  Es ergeben sich  zwei Möglichkeiten eines Hintergrundgraphen. Es kann entweder ein statischer Baum, der durchgehend die gesamte Struktur aufweist, oder ein dynamischer Baum, der sich der Eingabe des Studierenden anpasst,  implementiert werden. Ein statischer Baum erfordert weniger Implementierungsarbeit, ein dynamischer Baum erhöht jedoch die Übersichtlichkeit, da nur benötigte Teile des Baums angezeigt werden. Außerdem kann ein dynamischer Baum die Chance bieten dem Studierenden die Entwicklung eines B-Baums besser zu veranschaulichen. Diesen Vorteilen steht jedoch gegenüber, dass der Studierende aus didaktischer Sicht in seinen Bearbeitungsmöglichkeiten eingeschränkt sein würde. Insbesondere hier kann der Studierende die Baumstruktur nicht mehr falsch aufbauen, sodass die Hintergrundstruktur des B-Baums zur Reduktion möglicher Fehlerquellen führt.
 
 \paragraph{Ergebnis} \hfill \\
-Insbesondere der B-Baum aus jsdot-Elementen bringt verschiedene Herausforderungen mit sich. So ist es in dieser Variante auf Grund der Vielzahl von Elementen schwierig eine einfach zu verstehende und zu benutzende graphische Oberfläche zu bieten. Dem gegenüber steht die einfach zu bedienende graphische Oberfläche mit einer B-Baumstruktur im Hintergrund, die dem Studierenden jedoch striktere Vorgaben in der Benutzung vorgibt und somit Fehlerquellen reduziert. Die hier vorliegende Situation beschreibt einen Trade-off zwischen geringer Usability mit einem hohen Maß an Bearbeitungsvariationen und einer hohen Usabiltiy mit einem geringeren Maß an Bearbeitungsvariationen. Wie die Auswertung der Fallstudie über die Nutzung des EASy-DSBuilders zeigte sorgte besonders die gute Usability für hohe Akzeptanz bei den Studierenden\cite[S. 5]{Usener2014}. Auch in der neuen Anwendung soll der Akzeptanz eine hohe Priorität zugeschrieben werden, sodass trotz der Vereinfachung der Aufgabe durch die Reduktion möglicher Fehlerquelle der Editor mit Hintergrundstruktur dem Editor, in dem alle Elemente bewegbar sind, vorzuziehen ist. 
+Insbesondere der B-Baum aus jsdot-Elementen bringt verschiedene Herausforderungen mit sich. So ist es in dieser Variante auf Grund der Vielzahl von Elementen schwierig eine einfach zu verstehende und zu benutzende graphische Oberfläche zu bieten. Dem gegenüber steht die einfach zu bedienende graphische Oberfläche mit einer B-Baumstruktur im Hintergrund, die dem Studierenden jedoch striktere Vorgaben in der Benutzung vorgibt und somit Fehlerquellen reduziert. Die hier vorliegende Situation beschreibt einen Trade-off zwischen geringer Usability mit einem hohen Maß an Bearbeitungsvariationen und einer hohen Usabiltiy mit einem geringeren Maß an Bearbeitungsvariationen. Wie die Auswertung der Fallstudie über die Nutzung des EASy-DSBuilders zeigte, sorgte besonders die gute Usability für hohe Akzeptanz bei den Studierenden\cite[S. 5]{Usener2014}. Auch in der neuen Anwendung soll der Akzeptanz eine hohe Priorität zugeschrieben werden, sodass trotz der Vereinfachung der Aufgabe durch die Reduktion möglicher Fehlerquelle der Editor mit Hintergrundstruktur dem Editor, in dem alle Elemente bewegbar sind, vorzuziehen ist. 

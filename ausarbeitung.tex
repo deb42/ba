@@ -16,6 +16,11 @@
 \usepackage{mathpazo}
 \usepackage{lmodern}
 
+\usepackage{natbib}
+
+
+\usepackage{url}
+
 \setcounter{tocdepth}{3}
 \newcommand{\pfile}[1]{{\bfseries \ttfamily #1}}
 
@@ -68,7 +73,7 @@ B-Baum-Datenstrukturen}
 \begin{document}
 \SetBgContents{}
 	%% Bei Diplomarbeiten folgende Zeile nutzen
-	\mybachelortitle{Dipl.-Wirt.Inform. Claus Alexander Usener}
+	\mybachelortitle{Dipl.-Wirt. Inform. Claus Alexander Usener}
 	%% Bei Bachelorarbeiten diese Zeile auskommentieren
 	%%\mybachelortitle{(ggf. Name des Betreuers)}
 	%% Bei Seminararbeiten diese Zeile auskommentieren
@@ -95,11 +100,13 @@ B-Baum-Datenstrukturen}
 \include{content/06_anforderungen}
 \include{content/08_implementierung}
 \include{content/09_fazit}
+\appendix
 \include{content/12_anhang}
 
  \bibliography{Bachelorarbeit}
   \bibliographystyle{alpha}
+  %\bibliographystyle{plainnat}
  
 
-  \diplomabschlusserklaerung{(Abgabedatum)}
+  \bachelorabschlusserklaerung{(Abgabedatum)}
 \end{document}
